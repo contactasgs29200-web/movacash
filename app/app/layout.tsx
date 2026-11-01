@@ -11,6 +11,7 @@ import LogoutButton from "@/components/LogoutButton";
 import WsNav from "@/components/ws/WsNav";
 import { getT } from "@/lib/i18n/server";
 import LangSwitch from "@/components/LangSwitch";
+import AlerteEtsy from "@/components/at/AlerteEtsy";
 import InstallApp from "@/components/InstallApp";
 import "../atelier.css";
 
@@ -68,6 +69,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         <main className="min-w-0">
           <div className="space-y-3">
             <InstallApp />
+            <AlerteEtsy />
             {state === "past_due" && (
               <p className="notice-error">{t("Ton dernier paiement a échoué. Mets à jour ta carte pour garder l'accès.")} <Link href="/app/abonnement" className="font-semibold underline">{t("Régler maintenant")}</Link></p>
             )}
