@@ -11,44 +11,63 @@ interface GenOptions {
   maxOutputTokens?: number;
 }
 
+// Modèles essayés dans l'ordre. Google retire régulièrement des modèles (404 NOT_FOUND, ex. gemini-2.5-flash fermé
+// aux nouveaux comptes le 01/11/2026) : on passe alors au suivant et on garde celui qui marche.
+const MODELES = [...new Set([process.env.GEMINI_MODEL, "gemini-3.8-flash", "gemini-3-flash", "gemini-flash-latest", "gemini-2.5-flash"].filter(Boolean) as string[])];
+let modeleOk: string | null = null;
+
+// Coupe la « réflexion » (inutile pour la rédaction, elle multiplie le coût de sortie) avec le réglage de chaque génération.
+function reflexion(model: string, sans: boolean) {
+  if (sans) return {};
+  if (model.startsWith("gemini-2.5")) return { thinkingConfig: { thinkingBudget: Number(process.env.GEMINI_THINKING_BUDGET || 0) } };
+  return { thinkingConfig: { thinkingLevel: process.env.GEMINI_THINKING_LEVEL || "low" } };
+}
+
 export async function geminiGenerate(prompt: string, opts: GenOptions = {}): Promise<string> {
   const key = process.env.GEMINI_API_KEY;
   if (!key) throw new GeminiError("GEMINI_API_KEY non configurée");
-  const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
-  const body = {
-    contents: [{ role: "user", parts: [{ text: prompt }] }],
-    ...(opts.system ? { systemInstruction: { parts: [{ text: opts.system }] } } : {}),
-    generationConfig: {
-      temperature: opts.temperature ?? 0.8,
-      maxOutputTokens: opts.maxOutputTokens ?? 32000,
-      ...(opts.json ? { responseMimeType: "application/json" } : {}),
-      // La rédaction n'a pas besoin de « réflexion » : la couper divise le coût de sortie, sans changer le texte rendu.
-      ...(model.startsWith("gemini-2.5") ? { thinkingConfig: { thinkingBudget: Number(process.env.GEMINI_THINKING_BUDGET || 0) } } : {}),
-    },
-  };
-
+  const liste = modeleOk ? [modeleOk, ...MODELES.filter((m) => m !== modeleOk)] : MODELES;
   let lastErr = "";
-  for (let attempt = 0; attempt < 4; attempt++) {
-    const res = await fetch(`${API}/${model}:generateContent`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-      body: JSON.stringify(body),
-    });
-    if (res.ok) {
-      const data = await res.json();
-      const cand = data.candidates?.[0];
-      const text: string = (cand?.content?.parts || [])
-        .filter((p: { thought?: boolean }) => !p.thought)
-        .map((p: { text?: string }) => p.text || "")
-        .join("");
-      const u = data.usageMetadata || {};
-      await recordText(model, Number(u.promptTokenCount || 0), Number(u.candidatesTokenCount || 0) + Number(u.thoughtsTokenCount || 0));
-      if (!text) throw new GeminiError(`Réponse vide de Gemini (${cand?.finishReason || data.promptFeedback?.blockReason || "inconnu"})`);
-      return text;
+  for (const model of liste) {
+    let sansReflexion = false;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      const body = {
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        ...(opts.system ? { systemInstruction: { parts: [{ text: opts.system }] } } : {}),
+        generationConfig: {
+          temperature: opts.temperature ?? 0.8,
+          maxOutputTokens: opts.maxOutputTokens ?? 32000,
+          ...(opts.json ? { responseMimeType: "application/json" } : {}),
+          ...reflexion(model, sansReflexion),
+        },
+      };
+      const res = await fetch(`${API}/${model}:generateContent`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+        body: JSON.stringify(body),
+      });
+      if (res.ok) {
+        modeleOk = model;
+        const data = await res.json();
+        const cand = data.candidates?.[0];
+        const text: string = (cand?.content?.parts || [])
+          .filter((p: { thought?: boolean }) => !p.thought)
+          .map((p: { text?: string }) => p.text || "")
+          .join("");
+        const u = data.usageMetadata || {};
+        await recordText(model, Number(u.promptTokenCount || 0), Number(u.candidatesTokenCount || 0) + Number(u.thoughtsTokenCount || 0));
+        if (!text) throw new GeminiError(`Réponse vide de Gemini (${cand?.finishReason || data.promptFeedback?.blockReason || "inconnu"})`);
+        return text;
+      }
+      const txt = await res.text().catch(() => "");
+      lastErr = `${res.status} ${txt}`.slice(0, 500);
+      // Réglage de réflexion refusé par ce modèle : on réessaie sans.
+      if (res.status === 400 && /thinking/i.test(txt) && !sansReflexion) { sansReflexion = true; attempt--; continue; }
+      if (res.status === 404 || (res.status === 400 && /model/i.test(txt) && /not (found|supported)|no longer/i.test(txt))) break; // modèle retiré : suivant
+      if (![429, 500, 502, 503, 504].includes(res.status)) throw new GeminiError(`Erreur Gemini : ${lastErr}`);
+      await new Promise((r) => setTimeout(r, 2000 * 2 ** attempt));
+      if (attempt === 3) throw new GeminiError(`Erreur Gemini : ${lastErr}`);
     }
-    lastErr = `${res.status} ${await res.text().catch(() => "")}`.slice(0, 500);
-    if (![429, 500, 502, 503, 504].includes(res.status)) break;
-    await new Promise((r) => setTimeout(r, 2000 * 2 ** attempt));
   }
   throw new GeminiError(`Erreur Gemini : ${lastErr}`);
 }

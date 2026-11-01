@@ -61,7 +61,7 @@ Pour la mise en ligne pas à pas, voir **LANCEMENT.md**.
 
 ## Gemini
 
-`GEMINI_API_KEY` (Google AI Studio) et `GEMINI_MODEL` (défaut `gemini-2.5-flash`). Un e-book de 9 chapitres fait environ 11 appels.
+`GEMINI_API_KEY` (Google AI Studio) et `GEMINI_MODEL` (défaut `gemini-3.8-flash`, avec repli automatique si Google retire un modèle). Un e-book de 9 chapitres fait environ 11 appels.
 
 ## Déploiement
 

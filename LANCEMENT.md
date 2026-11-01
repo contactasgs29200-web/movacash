@@ -24,7 +24,7 @@ Le code arrive dans Vercel depuis le dépôt GitHub : chaque modification pouss�
 ## 3. Génération : Gemini
 
 1. Sur aistudio.google.com, crée une clé API sur un projet avec la facturation activée (sinon les quotas gratuits bloquent vite).
-2. Dans Vercel : `GEMINI_API_KEY`. `GEMINI_MODEL` peut rester vide (gemini-2.5-flash par défaut).
+2. Dans Vercel : `GEMINI_API_KEY`. `GEMINI_MODEL` peut rester vide (gemini-3.8-flash par défaut, repli automatique).
 3. Coût estimé : environ 0,12 € par e-book.
 
 ## 4. Paiement : Stripe
