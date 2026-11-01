@@ -54,7 +54,7 @@ export const SLIDER = {
   defaut: 300,
   paliers: [
     { jusqua: 300, mot: "Premier pas", note: "Un objectif de départ : le bon niveau pour apprendre avec ton premier e-book." },
-    { jusqua: 1000, mot: "Motivant", note: "Ça demande en général plusieurs e-books et de la régularité sur Etsy et Pinterest." },
+    { jusqua: 1000, mot: "Motivant", note: "Ça demande en général plusieurs e-books et de la régularité, dans ta boutique et sur Pinterest." },
     { jusqua: 3000, mot: "Ambitieux", note: "Ça demande un vrai catalogue et du temps. Vise-le comme une étape, pas comme un point de départ." },
     { jusqua: Infinity, mot: "Très ambitieux", note: "C'est un objectif de long terme, sans aucune garantie. Garde-le en tête, mais commence par le premier palier." },
   ],
@@ -64,7 +64,7 @@ export const LEVIERS = [
   {
     id: "pinterest",
     question: "Es-tu prêt à publier sur Pinterest ?",
-    detail: "Des épingles qui renvoient vers ta fiche Etsy. Pas besoin de montrer ton visage.",
+    detail: "Des épingles qui renvoient vers ta page produit. Pas besoin de montrer ton visage.",
     libelle: "Pinterest",
     action: "Épingler ton e-book sur Pinterest",
   },
@@ -85,7 +85,7 @@ export const PARCOURS = [
   { titre: "Tes 3 idées", texte: "Trois sujets choisis dans notre base d'idées à partir de tes réponses." },
   { titre: "Ton e-book", texte: "Movacash écrit le plan, les chapitres et les exemples pour toi." },
   { titre: "Ta couverture et ton PDF", texte: "Une mise en page propre, prête à mettre en vente." },
-  { titre: "Ta fiche Etsy", texte: "Titre, description et 13 tags préparés pour ta fiche." },
+  { titre: "Ta fiche produit", texte: "Titre, description et mots-clés préparés pour ta fiche." },
   { titre: "Ton plan de 30 jours", texte: "Quoi faire chaque semaine pour publier et te faire connaître, à ton rythme." },
 ];
 
@@ -139,7 +139,7 @@ export const STEPS: Step[] = [
     id: "boutique",
     condition: (a) => Boolean(a.anciennete) && !debutant(a),
     kicker: "Ta vitrine",
-    titre: "As-tu déjà une boutique Etsy ?",
+    titre: "As-tu déjà une boutique en ligne ?",
     confirmer: true,
     options: [
       { id: "oui", label: "Oui" },
@@ -153,7 +153,7 @@ export const STEPS: Step[] = [
     kicker: "Ta boutique",
     titre: "Donne-nous le lien de ta boutique.",
     aide: "On le garde avec ton dossier pour adapter tes conseils.",
-    placeholder: "etsy.com/shop/…",
+    placeholder: "ta-boutique.gumroad.com",
   },
 
   {
@@ -193,7 +193,7 @@ export const STEPS: Step[] = [
     illustration: "livre",
     kicker: "L'écriture",
     titre: "L'IA écrit pour toi.",
-    sous: "Plan, chapitres, exemples, couverture et fiche Etsy : tout est préparé pour toi.",
+    sous: "Plan, chapitres, exemples, couverture et fiche produit : tout est préparé pour toi.",
     cta: "Suivant",
   },
 
@@ -274,7 +274,7 @@ export const STEPS: Step[] = [
     kicker: "Ton horloge",
     titre: "Quand veux-tu publier ton premier e-book ?",
     options: [
-      { id: "aujourdhui", label: "Aujourd'hui", note: "C'est possible : l'e-book et la fiche Etsy sont préparés pour toi." },
+      { id: "aujourdhui", label: "Aujourd'hui", note: "C'est possible : l'e-book et la fiche produit sont préparés pour toi." },
       { id: "semaine", label: "Cette semaine" },
       { id: "mois", label: "Ce mois-ci" },
       { id: "tranquille", label: "Je prends mon temps" },
@@ -297,7 +297,7 @@ export const STEPS: Step[] = [
     kicker: "Dans un an",
     titre: "En une phrase, où aimerais-tu en être dans un an ?",
     aide: "Écris-le comme si c'était déjà vrai.",
-    placeholder: "Ex : je vends mes guides sur Etsy et j'ai plus de temps pour moi…",
+    placeholder: "Ex : je vends mes guides en ligne et j'ai plus de temps pour moi…",
     optional: true,
   },
   { type: "objectif", id: "objectif" },

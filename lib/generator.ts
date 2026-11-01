@@ -21,7 +21,7 @@ export interface Outline {
   chapters: { title: string; summary: string; keyPoints: string[] }[];
 }
 
-const SYSTEM = `Tu es un auteur et éditeur professionnel de guides pratiques numériques (e-books) vendus sur Etsy.
+const SYSTEM = `Tu es un auteur et éditeur professionnel de guides pratiques numériques (e-books) vendus en ligne (Gumroad, Payhip, Amazon KDP).
 Ton objectif : produire un contenu réellement utile, concret et actionnable, qui justifie son prix et obtient de bons avis clients.
 Règles absolues :
 - Pas de remplissage, pas de généralités creuses, pas de répétitions entre chapitres.
@@ -106,14 +106,14 @@ E-book terminé : « ${outline.title} » — ${outline.subtitle}
 Nombre de pages du PDF : environ ${pages}
 Chapitres : ${outline.chapters.map((c) => c.title).join(" | ")}
 
-Rédige la fiche produit Etsy optimisée (SEO Etsy) dans la langue de l'e-book.
-Contraintes Etsy strictes :
+Rédige la fiche produit optimisée pour la recherche (Gumroad, Payhip, Amazon) dans la langue de l'e-book.
+Contraintes strictes :
 - "title" : 140 caractères maximum, mots-clés importants au début, sans majuscules abusives ni promesse exagérée.
 - "tags" : exactement 13 tags, chacun de 20 caractères MAXIMUM, expressions que les acheteurs tapent vraiment, sans doublons.
 - "description" : 1200 à 2000 caractères, avec : accroche, à qui s'adresse le guide, ce qu'il contient (liste des chapitres), format (PDF numérique de ${pages} pages, téléchargement immédiat, aucun envoi physique), et une ligne finale qui indique : "${aiDisclosure(b.language)}"${b.sensitive ? ", plus un avertissement indiquant que le guide est informatif et ne remplace pas un professionnel" : ""}. Si une marque est citée, précise que le guide n'est pas affilié à cette marque. Aucune promesse de résultat garanti. Texte brut avec retours à la ligne, sans Markdown.
 - "priceSuggestion" : fourchette de prix réaliste en euros avec une justification courte.
 - "imageIdeas" : 5 idées d'images de fiche (couverture, aperçu du sommaire, page intérieure, bénéfices, format).
-- "category" : catégorie Etsy suggérée.
+- "category" : catégorie de produit suggérée (par exemple « Éducation », « Cuisine », « Bien-être »).
 
 Réponds uniquement en JSON : {"title": "...", "tags": ["..."], "description": "...", "priceSuggestion": "...", "imageIdeas": ["..."], "category": "..."}`;
   const kit = parseJsonLoose<EtsyKit>(await geminiGenerate(prompt, { system: SYSTEM, json: true, temperature: 0.7 }));

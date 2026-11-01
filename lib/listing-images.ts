@@ -1,4 +1,4 @@
-// Génération côté navigateur des visuels de fiche Etsy (canvas → PNG).
+// Génération côté navigateur des visuels de fiche produit (canvas → PNG).
 type Cover = { style: string; color: string; accent: string };
 
 interface Input {

@@ -15,8 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getT();
   const locale = await getLocale();
   const path = (await headers()).get("x-mc-path") || "/";
-  const title = `${APP_NAME} — ${t("Crée et vends tes e-books sur Etsy avec l'IA")}`;
-  const description = t("Trouve une idée d'e-book adaptée à Etsy, laisse l'IA l'écrire (40 à 60 pages, PDF prêt à vendre), puis récupère la fiche Etsy complète : titre, 13 tags, description et miniature. Sans engagement.");
+  const title = `${APP_NAME} — ${t("Crée et vends tes e-books en ligne avec l'IA")}`;
+  const description = t("Trouve une idée d'e-book à vendre en ligne, laisse l'IA l'écrire (40 à 60 pages, PDF prêt à vendre), puis récupère la fiche produit complète : titre, mots-clés, description et couverture. Sans engagement.");
   const google = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
   const bing = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
   return {

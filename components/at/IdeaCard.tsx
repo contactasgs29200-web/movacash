@@ -26,7 +26,7 @@ export default function IdeaCard({ idea, rank, detailed = false, onKeep }: { ide
         </div>
       </div>
       <div className="at-stats">
-        <div className="at-stat"><span>{t("Prix conseillé")}</span><b className="at-fort">{idea.price}</b><small>{t("estimation Etsy")}</small></div>
+        <div className="at-stat"><span>{t("Prix conseillé")}</span><b className="at-fort">{idea.price}</b><small>{t("estimation")}</small></div>
         <div className="at-stat"><span>{t("Demande")}</span><b>{idea.demandLabel.charAt(0).toUpperCase() + idea.demandLabel.slice(1)}</b><Jauge n={idea.demand} max={5} /></div>
         <div className="at-stat"><span>{t("Concurrence")}</span><b>{idea.competitionLabel.charAt(0).toUpperCase() + idea.competitionLabel.slice(1)}</b><Jauge n={idea.competition} max={5} /></div>
         <div className="at-stat"><span>{t("Difficulté")}</span><b>{idea.difficultyLabel}</b><Jauge n={idea.difficulty} max={3} /><small>{idea.difficultyNote}</small></div>

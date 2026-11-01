@@ -246,13 +246,13 @@ export function mountFunnel(cfg: FunnelConfig) {
   }
 
   function showPreuve() {
-    render(`${barre()}${retour()}<section class="stage stage-center preuve" data-reveal><p class="stage-kicker">${tr("Tu n'es pas seul")}</p><p class="preuve-avant">${tr("Sur Etsy, il y a près de")}</p><p class="compteur"><span id="compteur">0</span><span class="compteur-unite"> ${tr("millions")}</span></p><p class="preuve-apres">${tr("d'acheteurs actifs, qui cherchent chaque jour des guides, des planners et des fiches pratiques.")}</p><p class="preuve-note">${tr("Source : chiffres publiés par Etsy (2024).")}</p>${bouton(tr("Continuer"))}</section>`);
+    render(`${barre()}${retour()}<section class="stage stage-center preuve" data-reveal><p class="stage-kicker">${tr("Le principe")}</p><p class="preuve-avant">${tr("Ton e-book peut se vendre")}</p><p class="compteur"><span id="compteur">0</span><span class="compteur-unite"> ${tr("h sur 24")}</span></p><p class="preuve-apres">${tr("sur Gumroad, Payhip ou Amazon, même pendant que tu dors. Pas de stock, pas d'envoi : l'acheteur télécharge le PDF tout seul.")}</p>${bouton(tr("Continuer"))}</section>`);
     const el = root.querySelector<HTMLElement>("#compteur");
     const debut = performance.now();
     const tic = (t: number) => {
       if (!el?.isConnected) return;
       const k = Math.min(1, (t - debut) / 1400);
-      el.textContent = String(Math.round(90 * (1 - Math.pow(1 - k, 3))));
+      el.textContent = String(Math.round(24 * (1 - Math.pow(1 - k, 3))));
       if (k < 1) requestAnimationFrame(tic);
     };
     requestAnimationFrame(tic);
@@ -261,10 +261,10 @@ export function mountFunnel(cfg: FunnelConfig) {
   function showExplication() {
     const points = [
       [tr("Tu le crées une seule fois"), tr("Pas de stock, pas d'envoi : le même fichier peut se vendre autant de fois qu'il trouve preneur.")],
-      [tr("Etsy a déjà des acheteurs"), tr("Ils y tapent « planner », « guide » ou « recettes ». Une fiche bien rédigée peut apparaître dans leurs recherches.")],
+      [tr("Les acheteurs sont déjà là"), tr("Sur Amazon, Gumroad ou Payhip, des gens cherchent chaque jour des guides pratiques. Une fiche bien rédigée peut apparaître dans leurs recherches.")],
       [tr("Tu fixes ton prix"), tr("C'est toi qui décides combien coûte ton e-book.")],
     ];
-    render(`${barre()}${retour()}<section class="stage explication" data-reveal><p class="stage-kicker">${tr("En trente secondes")}</p><h1 class="stage-title stage-title-q machine">${tr("Un e-book à vendre, c'est quoi ?")}</h1><p class="saas-chapo">${tr("Un guide en PDF sur un sujet que des gens cherchent. Tu le crées avec Movacash, tu le mets en vente sur Etsy, et chaque acheteur le télécharge tout seul.")}</p><ol class="saas-points">${points
+    render(`${barre()}${retour()}<section class="stage explication" data-reveal><p class="stage-kicker">${tr("En trente secondes")}</p><h1 class="stage-title stage-title-q machine">${tr("Un e-book à vendre, c'est quoi ?")}</h1><p class="saas-chapo">${tr("Un guide en PDF sur un sujet que des gens cherchent. Tu le crées avec Movacash, tu le mets en vente sur Gumroad, Payhip ou Amazon, et chaque acheteur le télécharge tout seul.")}</p><ol class="saas-points">${points
       .map(([t, p], n) => `<li style="--retard:${n * 90}ms"><span class="saas-num">${n + 1}</span><div><h2>${t}</h2><p>${p}</p></div></li>`)
       .join("")}</ol>${bouton(tr("Compris"))}</section>`);
   }
@@ -360,7 +360,7 @@ export function mountFunnel(cfg: FunnelConfig) {
   function diagnostic() {
     const objectif = Number(answers.revenu ?? SLIDER.defaut);
     const actions = [
-      { libelle: tr("Publier ton premier e-book sur Etsy"), detail: tr("Un sujet précis, une fiche soignée.") },
+      { libelle: tr("Publier ton premier e-book en ligne"), detail: tr("Un sujet précis, une fiche soignée.") },
       ...LEVIERS.filter((l) => answers[l.id] === "oui").map((l) => ({ libelle: l.action, detail: l.detail })),
       { libelle: tr("Rester régulier"), detail: answers.time ? tr("{temps} par jour, chaque semaine.", { temps: TEMPS[String(answers.time)] || tr("Un peu de temps") }) : tr("Un peu chaque semaine.") },
     ];
@@ -372,7 +372,7 @@ export function mountFunnel(cfg: FunnelConfig) {
       .map((_, n) => `<span class="seg seg-${Math.min(n, 2)}" style="flex:1"></span>`)
       .join("")}</div><div class="proj-chiffres"><div><b>${nb}</b><span>${tr("ventes par mois")}</span></div><div><b>${euros(PRIX_EBOOK)}</b><span>${tr("si tu vends à ce prix")}</span></div><div><b>${Math.ceil(nb / 30)}</b><span>${tr("par jour environ")}</span></div></div></div><p class="proj-intro">${tr("Pour t'en approcher, voilà ce qu'il faudrait faire :")}</p><div class="proj-lignes">${actions
       .map((l, n) => `<div class="proj-ligne"><i class="pastille pastille-${Math.min(n, 2)}"></i><span class="proj-nom">${esc(l.libelle)}<small>${esc(l.detail)}</small></span></div>`)
-      .join("")}</div><p class="hypothese">${tr("Simple calcul à partir de ton objectif, pas une promesse ni une prévision. Tes ventes dépendent de ton sujet, de ta fiche Etsy et de ta régularité.")}</p>${bouton(tr("Continuer"))}</section>`);
+      .join("")}</div><p class="hypothese">${tr("Simple calcul à partir de ton objectif, pas une promesse ni une prévision. Tes ventes dépendent de ton sujet, de ta fiche produit et de ta régularité.")}</p>${bouton(tr("Continuer"))}</section>`);
   }
 
   function showBarriere() {
@@ -384,7 +384,7 @@ export function mountFunnel(cfg: FunnelConfig) {
   }
 
   function showCompte(erreur = "", valeurs: { name?: string; email?: string; password?: string; cgv?: boolean; tips?: boolean } = {}) {
-    render(`${barre()}<section class="stage stage-center account account-court" data-reveal><span class="account-icone" aria-hidden="true">${ICONE_MAIL}</span><h1 class="stage-title stage-title-q">${tr("Crée ton compte")}<br/><em>${tr("pour débloquer tes résultats.")}</em></h1><div class="account-form"><label class="case case-tips"><input id="mc-tips" type="checkbox"/><span>${tr("Envoie-moi mes idées et des conseils Etsy par e-mail (désinscription en un clic).")}</span></label></div>${cfg.google ? `<div class="account-form google-bloc"><a class="btn-google" href="/api/auth/google?next=%2Fquiz">${GOOGLE_G}${tr("Continuer avec Google")}</a><p class="form-note">${tr("En continuant avec Google, tu acceptes les CGV et la politique de confidentialité, et tu comprends qu'aucun revenu n'est garanti.")}</p><p class="google-ou"><span>${tr("ou")}</span></p></div>` : ""}<form class="account-form" id="signup-form" novalidate><label class="field"><span>${tr("Prénom")}</span><input name="name" type="text" autocomplete="given-name" placeholder="${tr("Camille")}" value="${esc(valeurs.name || "")}" required/></label><label class="field"><span>${tr("E-mail")}</span><input name="email" type="email" autocomplete="email" inputmode="email" placeholder="${tr("camille@exemple.fr")}" value="${esc(valeurs.email || "")}" required/></label><label class="field"><span>${tr("Mot de passe")}</span><input name="password" type="password" autocomplete="new-password" minlength="8" placeholder="${tr("8 caractères minimum")}" required/></label><label class="case"><input name="cgv" type="checkbox"/><span>${tr("J'accepte les <1>CGV</1> et la <2>politique de confidentialité</2>, et je comprends qu'aucun revenu n'est garanti.").replace(/<1>(.*?)<\/1>/, '<a href="/cgv" target="_blank" rel="noopener">$1</a>').replace(/<2>(.*?)<\/2>/, '<a href="/confidentialite" target="_blank" rel="noopener">$1</a>')}</span></label>${erreur ? `<p class="form-error">${esc(erreur)}</p>` : ""}<button class="btn btn-primary btn-lg" type="submit">${tr("Continuer")} ${fleche}</button><p class="form-note">${tr("Tes réponses sont enregistrées dans ton compte. Pas de revente de données.")}</p></form></section>`);
+    render(`${barre()}<section class="stage stage-center account account-court" data-reveal><span class="account-icone" aria-hidden="true">${ICONE_MAIL}</span><h1 class="stage-title stage-title-q">${tr("Crée ton compte")}<br/><em>${tr("pour débloquer tes résultats.")}</em></h1><div class="account-form"><label class="case case-tips"><input id="mc-tips" type="checkbox"/><span>${tr("Envoie-moi mes idées et des conseils de vente par e-mail (désinscription en un clic).")}</span></label></div>${cfg.google ? `<div class="account-form google-bloc"><a class="btn-google" href="/api/auth/google?next=%2Fquiz">${GOOGLE_G}${tr("Continuer avec Google")}</a><p class="form-note">${tr("En continuant avec Google, tu acceptes les CGV et la politique de confidentialité, et tu comprends qu'aucun revenu n'est garanti.")}</p><p class="google-ou"><span>${tr("ou")}</span></p></div>` : ""}<form class="account-form" id="signup-form" novalidate><label class="field"><span>${tr("Prénom")}</span><input name="name" type="text" autocomplete="given-name" placeholder="${tr("Camille")}" value="${esc(valeurs.name || "")}" required/></label><label class="field"><span>${tr("E-mail")}</span><input name="email" type="email" autocomplete="email" inputmode="email" placeholder="${tr("camille@exemple.fr")}" value="${esc(valeurs.email || "")}" required/></label><label class="field"><span>${tr("Mot de passe")}</span><input name="password" type="password" autocomplete="new-password" minlength="8" placeholder="${tr("8 caractères minimum")}" required/></label><label class="case"><input name="cgv" type="checkbox"/><span>${tr("J'accepte les <1>CGV</1> et la <2>politique de confidentialité</2>, et je comprends qu'aucun revenu n'est garanti.").replace(/<1>(.*?)<\/1>/, '<a href="/cgv" target="_blank" rel="noopener">$1</a>').replace(/<2>(.*?)<\/2>/, '<a href="/confidentialite" target="_blank" rel="noopener">$1</a>')}</span></label>${erreur ? `<p class="form-error">${esc(erreur)}</p>` : ""}<button class="btn btn-primary btn-lg" type="submit">${tr("Continuer")} ${fleche}</button><p class="form-note">${tr("Tes réponses sont enregistrées dans ton compte. Pas de revente de données.")}</p></form></section>`);
     const form = root.querySelector<HTMLFormElement>("#signup-form")!;
     if (valeurs.password) (form.elements.namedItem("password") as HTMLInputElement).value = valeurs.password;
     if (valeurs.cgv) (form.elements.namedItem("cgv") as HTMLInputElement).checked = true;
@@ -501,12 +501,12 @@ export function mountFunnel(cfg: FunnelConfig) {
       tr("Des idées d'e-books triées selon tes réponses"),
       tr("Le générateur : plan, chapitres, exemples et couverture"),
       tr("L'export PDF prêt à vendre (A4, A5, US Letter)"),
-      tr("La fiche Etsy : titre, description, 13 tags et miniature"),
+      tr("La fiche produit : titre, description, mots-clés et couverture"),
       tr("Ton plan de 30 jours pour publier et te faire connaître"),
     ];
     const faq = [
       [tr("Que se passe-t-il si je résilie ?"), tr("Tu gardes l'accès jusqu'à la fin de la période payée, puis tu n'es plus prélevé. Tes PDF déjà téléchargés restent à toi.")],
-      [tr("Je peux vendre les e-books au prix que je veux ?"), tr("Oui, c'est toi qui fixes ton prix sur Etsy.")],
+      [tr("Je peux vendre les e-books au prix que je veux ?"), tr("Oui, c'est toi qui fixes ton prix sur ta boutique.")],
       [tr("Et si je ne fais aucune vente ?"), tr("C'est possible : l'abonnement paie l'outil, pas un résultat. Commence par l'offre Starter et publie régulièrement.")],
       [tr("Le quota d'e-books se renouvelle quand ?"), tr("Le 1er de chaque mois, y compris en formule annuelle. Les e-books non utilisés ne sont pas reportés.")],
       [tr("L'annuel est-il remboursable ?"), tr("Non : l'année est payée en une fois, à moitié prix. Tu peux résilier quand tu veux pour qu'elle ne soit pas renouvelée, et tu gardes l'accès jusqu'à la fin de l'année payée.")],
@@ -518,7 +518,7 @@ export function mountFunnel(cfg: FunnelConfig) {
       )
       .join("")}</div><label class="case case-formules"><input type="checkbox" id="waiver"/><span>${tr("Je demande l'accès immédiat au service et je comprends que je perds mon droit de rétractation de 14 jours dès que je crée mon premier e-book (art. L221-28 du Code de la consommation).")}</span></label>${erreur ? `<p class="form-error">${esc(erreur)}</p>` : ""}<button class="btn btn-primary btn-lg btn-payer" data-action="payer">${tr("Payer et accéder à mon atelier")} · ${annuel ? tr("{prix} / an", { prix: prix(parAn(plan)) }) : tr("{prix} / mois", { prix: prix(plan.price) })}</button><p class="plan-securite">${tr("Paiement sécurisé par Stripe. TVA non applicable, art. 293 B du CGI. Renouvellement automatique, résiliation en 1 clic depuis ton compte, effective à la fin de la période payée. Aucun remboursement d'une période entamée. Movacash est un outil : aucun revenu n'est garanti.")}</p>${cfg.demo ? `<p class="plan-demo">${tr("Mode démo : le paiement n'est pas encore branché, l'abonnement s'active sans être débité.")}</p>` : ""}<section class="vente-bloc"><h2 class="vente-titre">${tr("Ce que tu débloques")}</h2><ul class="plan-contenu">${avantages.map((a) => `<li>${a}</li>`).join("")}</ul></section><section class="vente-bloc"><h2 class="vente-titre">${tr("Questions fréquentes")}</h2><div class="faq">${faq
       .map(([q, r]) => `<details><summary>${q}</summary><p>${r}</p></details>`)
-      .join("")}</div></section><p class="resultats-mention">${tr("Aucun revenu n'est garanti : tes ventes dépendent de ton sujet, de ta fiche Etsy et de ta régularité.")}</p></section>`);
+      .join("")}</div></section><p class="resultats-mention">${tr("Aucun revenu n'est garanti : tes ventes dépendent de ton sujet, de ta fiche produit et de ta régularité.")}</p></section>`);
   }
 
   function envoyerQuiz() {

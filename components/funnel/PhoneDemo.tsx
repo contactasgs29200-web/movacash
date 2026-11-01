@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useT } from "@/lib/i18n/client";
 import { tk } from "@/lib/i18n/t";
 
-const STEPS = [tk("Analyse du sujet"), tk("Plan détaillé"), tk("Rédaction des chapitres"), tk("Exemples et exercices"), tk("Couverture et mise en page"), tk("Fiche Etsy et 13 tags")];
+const STEPS = [tk("Analyse du sujet"), tk("Plan détaillé"), tk("Rédaction des chapitres"), tk("Exemples et exercices"), tk("Couverture et mise en page"), tk("Fiche produit et mots-clés")];
 const TICKS = 260; // ~13 s pour aller de 0 à 100 %
 const R = 70, C = 2 * Math.PI * R;
 

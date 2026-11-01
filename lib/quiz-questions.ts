@@ -38,10 +38,10 @@ export const QUESTIONS: Question[] = [
   { k: "goal", s: "Toi", t: "Qu'est-ce que tu veux construire ?", o: [["side", "Un revenu d'appoint", "Quelques ventes par mois"], ["build", "Une vraie boutique", "Une activité qui grandit sur plusieurs mois"], ["test", "Juste tester", "Voir si la vente de produits numériques me plaît"]] },
 
   // Ton niveau
-  { k: "etsy", s: "Ton niveau", t: "Où en es-tu avec la vente en ligne ?", o: [["none", "Je n'ai jamais vendu en ligne"], ["online", "J'ai déjà vendu ailleurs", "Vinted, Leboncoin, eBay…"], ["shop", "J'ai déjà une boutique Etsy"]] },
+  { k: "etsy", s: "Ton niveau", t: "Où en es-tu avec la vente en ligne ?", o: [["none", "Je n'ai jamais vendu en ligne"], ["online", "J'ai déjà vendu ailleurs", "Vinted, Leboncoin, eBay…"], ["shop", "J'ai déjà une boutique en ligne"]] },
   { k: "writing", s: "Ton niveau", t: "Relire et corriger un texte, pour toi c'est…", h: "L'IA rédige, mais la relecture fait la qualité de ton e-book.", o: [["easy", "Facile, j'aime ça"], ["ok", "Faisable, sans plus"], ["hard", "Difficile", "On te proposera des sujets plus simples à relire"]] },
   { k: "sensitive", s: "Ton niveau", t: "Les sujets santé, minceur ou argent, ça te va ?", h: "Ils se vendent bien, mais demandent plus de prudence et d'avertissements.", o: [["yes", "Oui, avec les bons avertissements"], ["no", "Je préfère les éviter"]] },
-  { k: "promo", s: "Ton niveau", t: "Faire connaître tes e-books sur les réseaux, c'est…", o: [["face", "OK, même face caméra"], ["faceless", "OK, mais sans montrer mon visage", "Pinterest, carrousels, vidéos sans visage"], ["none", "Non, seulement Etsy"]] },
+  { k: "promo", s: "Ton niveau", t: "Faire connaître tes e-books sur les réseaux, c'est…", o: [["face", "OK, même face caméra"], ["faceless", "OK, mais sans montrer mon visage", "Pinterest, carrousels, vidéos sans visage"], ["none", "Non, seulement ma boutique"]] },
 
   // Ton terrain
   { k: "themes", s: "Ton terrain", type: "themes", max: 4, t: "Quelles thématiques t'attirent ?", h: "Jusqu'à 4 choix." },

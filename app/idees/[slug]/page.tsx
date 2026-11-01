@@ -11,13 +11,13 @@ export const dynamic = "force-dynamic";
 
 type Props = { params: Promise<{ slug: string }> };
 
-const titre = (nom: string) => `Idées d'e-books à vendre sur Etsy : ${nom}`;
+const titre = (nom: string) => `Idées d'e-books à vendre en ligne : ${nom}`;
 const NIVEAU = ["", "très faible", "faible", "moyenne", "forte", "très forte"];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = await categoriePublique((await params).slug);
   if (!c) return {};
-  const desc = `${c.n} idées d'e-books sur le thème ${c.name.toLowerCase()} à vendre sur Etsy, avec public cible, demande, concurrence et prix conseillé (${c.prixMin} à ${c.prixMax} €).`;
+  const desc = `${c.n} idées d'e-books sur le thème ${c.name.toLowerCase()} à vendre en ligne, avec public cible, demande, concurrence et prix conseillé (${c.prixMin} à ${c.prixMax} €).`;
   return { title: titre(c.name), description: desc, openGraph: { title: titre(c.name), description: desc, type: "article", locale: "fr_FR" } };
 }
 
@@ -29,9 +29,9 @@ export default async function Theme({ params }: Props) {
   const url = `${APP_URL}/idees/${c.slug}?lang=fr`;
   const reste = Math.max(0, c.n - c.idees.length);
   const faq: [string, string][] = [
-    [`Quels e-books vendre sur Etsy dans le thème ${c.name.toLowerCase()} ?`, `Des guides précis pour un public précis : par exemple « ${c.idees[0]?.title} »${c.idees[1] ? ` ou « ${c.idees[1].title} »` : ""}. Vérifie toujours la demande en cherchant le sujet sur Etsy avant de te lancer.`],
-    [`À quel prix vendre un e-book ${c.name.toLowerCase()} ?`, `Dans notre base, les prix conseillés pour ce thème vont de ${c.prixMin} à ${c.prixMax} €, estimés à partir de produits comparables. Ce sont des repères, pas des garanties : regarde les prix des e-books proches sur Etsy et tiens compte des frais.`],
-    ["Peut-on écrire ces e-books avec l'IA ?", `Oui. ${APP_NAME} écrit le plan et les chapitres avec l'IA, exporte le PDF et prépare la fiche Etsy avec la mention de l'IA demandée par Etsy. Tu relis et ajustes avant de vendre.`],
+    [`Quels e-books vendre en ligne dans le thème ${c.name.toLowerCase()} ?`, `Des guides précis pour un public précis : par exemple « ${c.idees[0]?.title} »${c.idees[1] ? ` ou « ${c.idees[1].title} »` : ""}. Vérifie toujours la demande en cherchant le sujet sur Amazon avant de te lancer.`],
+    [`À quel prix vendre un e-book ${c.name.toLowerCase()} ?`, `Dans notre base, les prix conseillés pour ce thème vont de ${c.prixMin} à ${c.prixMax} €, estimés à partir de produits comparables. Ce sont des repères, pas des garanties : regarde les prix des e-books proches sur Amazon et tiens compte des frais de la plateforme.`],
+    ["Peut-on écrire ces e-books avec l'IA ?", `Oui. ${APP_NAME} écrit le plan et les chapitres avec l'IA, exporte le PDF et prépare la fiche produit avec la mention de l'IA demandée par Amazon KDP. Tu relis et ajustes avant de vendre.`],
   ];
   const ld = {
     "@context": "https://schema.org",
@@ -69,12 +69,12 @@ export default async function Theme({ params }: Props) {
             </article>
           ))}
         </div>
-        <p className="dim" style={{ fontSize: 13, marginTop: 12 }}>Demande, concurrence et prix sont nos estimations, pas des garanties : vérifie toujours le sujet en le cherchant sur Etsy.</p>
+        <p className="dim" style={{ fontSize: 13, marginTop: 12 }}>Demande, concurrence et prix sont nos estimations, pas des garanties : vérifie toujours le sujet en le cherchant sur Amazon.</p>
         <aside className="guide-cta">
           <h2>{reste > 0 ? `${reste} autres idées ${c.name.toLowerCase()} t'attendent` : "Trouve l'idée qui te correspond"}</h2>
-          <p>Réponds au questionnaire gratuit : {APP_NAME} choisit 3 idées selon ton temps, ton niveau et tes envies, puis écrit l'e-book, le PDF et la fiche Etsy.</p>
+          <p>Réponds au questionnaire gratuit : {APP_NAME} choisit 3 idées selon ton temps, ton niveau et tes envies, puis écrit l'e-book, le PDF et la fiche produit.</p>
           <Link className="btn btn-accent btn-lg" href="/quiz?lang=fr">Recevoir mes 3 idées →</Link>
-          <p className="dim" style={{ fontSize: 13, marginTop: 12 }}>{APP_NAME} n'est pas affilié à Etsy. Aucun revenu n'est garanti.</p>
+          <p className="dim" style={{ fontSize: 13, marginTop: 12 }}>{APP_NAME} n'est affilié à aucune plateforme de vente. Aucun revenu n'est garanti.</p>
         </aside>
         <section>
           <h2>Questions fréquentes</h2>
@@ -83,8 +83,8 @@ export default async function Theme({ params }: Props) {
         <h2>Pour aller plus loin</h2>
         <ul>
           <li><Link href="/guides/creer-ebook-ia?lang=fr">Créer un e-book avec l'IA : la méthode pas à pas</Link></li>
-          <li><Link href="/guides/fiche-etsy-produit-numerique?lang=fr">Rédiger la fiche Etsy : titre, 13 tags et description</Link></li>
-          <li><Link href="/guides/prix-ebook-etsy?lang=fr">Quel prix pour un e-book sur Etsy ?</Link></li>
+          <li><Link href="/guides/fiche-etsy-produit-numerique?lang=fr">Rédiger la fiche produit : titre, mots-clés et description</Link></li>
+          <li><Link href="/guides/prix-ebook-etsy?lang=fr">Quel prix pour un e-book en ligne ?</Link></li>
         </ul>
         <h2>Autres thèmes</h2>
         <p className="idees-autres">

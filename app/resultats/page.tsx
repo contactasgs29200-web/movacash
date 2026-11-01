@@ -19,9 +19,9 @@ const STRENGTH: Record<string, string> = { teach: tk("tu expliques bien"), organ
 // Plan des 30 premiers jours, ajusté au temps disponible, à la promotion acceptée et à la patience.
 function plan30(a: QuizAnswers, t: T): [string, string][] {
   const few = a.time === "15";
-  const promo = a.promo === "none" ? t("optimise tes titres et tags Etsy (pas de réseaux, comme tu le souhaites)") : a.promo === "faceless" ? t("épingle tes visuels sur Pinterest et publie un carrousel sans visage") : t("publie une courte vidéo qui montre l'intérieur de ton e-book");
+  const promo = a.promo === "none" ? t("optimise tes titres et mots-clés (pas de réseaux, comme tu le souhaites)") : a.promo === "faceless" ? t("épingle tes visuels sur Pinterest et publie un carrousel sans visage") : t("publie une courte vidéo qui montre l'intérieur de ton e-book");
   return [
-    [t("Semaine 1"), t("génère ton premier e-book{sessions}, crée ta boutique Etsy{boutique}.", { sessions: few ? t(" par petites sessions de 15 minutes") : "", boutique: a.etsy === "shop" ? t(" (ou ajoute une section à la tienne)") : "" })],
+    [t("Semaine 1"), t("génère ton premier e-book{sessions}, crée ta boutique Gumroad ou Payhip{boutique}.", { sessions: few ? t(" par petites sessions de 15 minutes") : "", boutique: a.etsy === "shop" ? t(" (ou ajoute une section à la tienne)") : "" })],
     [t("Semaine 2"), t("publie-le avec la fiche et la miniature générées, puis {promo}.", { promo })],
     [t("Semaine 3"), few ? t("regarde les vues de ta fiche et ajuste le titre ou la première photo.") : t("crée un deuxième e-book dans la même thématique pour renforcer ta boutique.")],
     [t("Semaine 4"), t("{ebook}, et note ce qui attire le plus de vues.", { ebook: few ? t("deuxième e-book") : t("troisième e-book") }) + (a.patience === "weeks" ? t(" Les premières ventes peuvent prendre plus d'un mois : c'est normal.") : "")],
@@ -32,6 +32,7 @@ export default async function Results({ searchParams }: { searchParams: Promise<
   let user = await getCurrentUser();
   if (!user) redirect("/inscription");
   const { t, locale } = await getT();
+  const amazon = ({ fr: "amazon.fr", de: "amazon.de", es: "amazon.es", it: "amazon.it", nl: "amazon.nl", pl: "amazon.pl", sv: "amazon.se" } as Record<string, string>)[locale] || "amazon.com";
   const { welcome, session_id } = await searchParams;
   // Retour de Stripe avant le webhook : on lit le paiement tout de suite pour débloquer l'accès sans attendre.
   if (session_id && !hasActiveSubscription(user)) {
@@ -58,7 +59,7 @@ export default async function Results({ searchParams }: { searchParams: Promise<
 
   const profil = [
     a.time && t("{temps} par jour", { temps: t(label("time", String(a.time))).toLowerCase() }),
-    a.etsy && t(({ none: tk("premiers pas dans la vente en ligne"), online: tk("déjà vendu en ligne"), shop: tk("boutique Etsy déjà ouverte") } as Record<string, string>)[String(a.etsy)] || ""),
+    a.etsy && t(({ none: tk("premiers pas dans la vente en ligne"), online: tk("déjà vendu en ligne"), shop: tk("boutique en ligne déjà ouverte") } as Record<string, string>)[String(a.etsy)] || ""),
     a.format && t("tu préfères {format}", { format: t(label("format", String(a.format))).toLowerCase() }),
     strengths.length && strengths.join(t(" et ")),
     a.tone && t("ton {ton}", { ton: t(label("tone", String(a.tone))).toLowerCase() }),
@@ -85,7 +86,7 @@ export default async function Results({ searchParams }: { searchParams: Promise<
           {welcome && <p className="pill" style={{ marginBottom: 14, color: "var(--ok)", background: "color-mix(in srgb, var(--ok) 15%, transparent)" }}>{t("Abonnement activé")}</p>}
           <p className="eyebrow">{t("Tes résultats")}</p>
           <h1 className="q-title" style={{ marginTop: 12 }}>{name ? t("{prenom}, voici", { prenom: name }) : t("Voici")} <em className="serif">{t("tes 3 idées.")}</em></h1>
-          <p className="q-help">{t("Sélectionnées parmi {total} sujets selon tes réponses. Les indicateurs sont des estimations : vérifie toujours la demande en cherchant le sujet sur Etsy.", { total })}</p>
+          <p className="q-help">{t("Sélectionnées parmi {total} sujets selon tes réponses. Les indicateurs sont des estimations : vérifie toujours la demande en cherchant le sujet sur Amazon.", { total })}</p>
         </div>
         {profil && (
           <div className="profile">
@@ -110,7 +111,7 @@ export default async function Results({ searchParams }: { searchParams: Promise<
                   {unlocked && (
                     <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
                       <Link className="btn btn-accent btn-sm" href={`/app/creer/${i.id}`}>{t("Créer cet e-book")} →</Link>
-                      <a className="btn btn-ghost btn-sm" target="_blank" rel="noreferrer" href={`https://www.etsy.com/search?q=${encodeURIComponent(i.title)}`}>{t("Vérifier sur Etsy")} ↗</a>
+                      <a className="btn btn-ghost btn-sm" target="_blank" rel="noreferrer" href={`https://www.${amazon}/s?k=${encodeURIComponent(i.title)}&i=digital-text`}>{t("Vérifier sur Amazon")} ↗</a>
                     </div>
                   )}
                 </div>

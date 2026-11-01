@@ -39,8 +39,8 @@ export async function translateIdeas(ideas: Base[], locale: Locale) {
   for (let k = 0; k < todo.length; k += 40) {
     const lot = todo.slice(k, k + 40);
     const prompt = [
-      `Translate these e-book ideas from French into ${NAMES[locale]} (${locale}). They are guides sold on Etsy.`,
-      "Keep each title short, natural and appealing for a native speaker, like a real Etsy product title. Adapt local references only when the French one makes no sense abroad.",
+      `Translate these e-book ideas from French into ${NAMES[locale]} (${locale}). They are guides sold online (Gumroad, Payhip, Amazon).`,
+      "Keep each title short, natural and appealing for a native speaker, like a real online product title. Adapt local references only when the French one makes no sense abroad.",
       'Return only JSON: {"items":[{"id":number,"title":string,"audience":string,"format":string}]}',
       JSON.stringify(lot.map((i) => ({ id: i.id, title: i.title, audience: i.audience, format: i.format }))),
     ].join("\n");

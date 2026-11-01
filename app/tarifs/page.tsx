@@ -13,8 +13,8 @@ import { canPayFromHere, getT } from "@/lib/i18n/server";
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getT();
   return {
-    title: t("Tarifs : crée tes e-books Etsy avec l'IA dès 19,90 € par mois"),
-    description: t("Trois formules sans engagement : 20, 50 ou 120 e-books par mois, PDF prêt à vendre et fiche Etsy complète. −50 % en annuel."),
+    title: t("Tarifs : crée tes e-books à vendre avec l'IA dès 19,90 € par mois"),
+    description: t("Trois formules sans engagement : 20, 50 ou 120 e-books par mois, PDF prêt à vendre et fiche produit complète. −50 % en annuel."),
   };
 }
 
@@ -35,7 +35,7 @@ export default async function Tarifs({ searchParams }: { searchParams: Promise<{
         <div className="pw-head">
           <p className="eyebrow">{t("Ton atelier d'e-books")}</p>
           <h1>{t("Débloque tes idées")} <em>{t("et crée ton premier e-book dès aujourd'hui.")}</em></h1>
-          <p>{t("Accès immédiat à toute la base de {total} idées, au générateur, à l'export PDF et au kit Etsy. Sans engagement.", { total: await countIdeas() })}</p>
+          <p>{t("Accès immédiat à toute la base de {total} idées, au générateur, à l'export PDF et à la fiche produit. Sans engagement.", { total: await countIdeas() })}</p>
           {canceled && <p className="error" style={{ marginTop: 12 }}>{t("Paiement annulé : tu n'as pas été débité.")}</p>}
           {!payable && <p className="error" style={{ marginTop: 12 }}>{t("L'abonnement Movacash n'est pas encore disponible dans ton pays.")}</p>}
           {!isStripeConfigured() && <p className="dim" style={{ marginTop: 12 }}>{t("Mode démo : Stripe n'est pas encore branché, l'abonnement s'active sans paiement.")}</p>}

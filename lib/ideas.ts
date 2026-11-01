@@ -273,7 +273,7 @@ export function describeIdea(i: Idea, a: QuizAnswers, terrain: Set<number>, comp
   const reasons = explainIdea(i, a, terrain, t).filter((_, k, all) => k !== all.length - (i.sensitive ? 2 : 1));
   const generic = new Set([t("Demande estimée {demande}, concurrence {concurrence}.", { demande: t(LEVEL[i.demand - 1]), concurrence: t(COMP[i.competition - 1]) })]);
   const personnel = reasons.find((r) => !generic.has(r) && !(i.sensitive && r === reasons[reasons.length - 1]));
-  const why = personnel || t("{public} : un public précis, {suite}.", { public: i.audience, suite: i.competition <= 2 ? t("avec peu de concurrence sur Etsy") : t("qui cherche des guides concrets") });
+  const why = personnel || t("{public} : un public précis, {suite}.", { public: i.audience, suite: i.competition <= 2 ? t("avec peu de concurrence") : t("qui cherche des guides concrets") });
   return {
     id: i.id,
     title: i.title,

@@ -1,5 +1,5 @@
-// Règles Etsy et garde-fous de conformité appliqués aux e-books et aux fiches produits.
-// À revérifier régulièrement : https://www.etsy.com/legal/creativity et https://www.etsy.com/legal/prohibited
+// Règles des plateformes (Gumroad, Payhip, Amazon KDP) et garde-fous appliqués aux e-books et aux fiches produits.
+// Etsy refuse depuis le 22/10/2026 les guides pratiques écrits par IA : on ne le recommande plus.
 import { tk, makeT, type T } from "./i18n/t";
 import { CONTENT_LANGS, contentLang } from "./content-langs";
 
@@ -47,14 +47,14 @@ const HYPE = /(garanti|guaranteed|100 ?%|miracle|guéri|guérir|cure|perdez \d+ 
 export function checkEtsyCompliance(kit: EtsyKit, opts: { sensitive: string | null; language: string }, t: T = makeT({})): ComplianceIssue[] {
   const issues: ComplianceIssue[] = [];
   if (kit.title.length > 140) issues.push({ level: "error", message: t("Titre trop long ({n}/140 caractères).", { n: kit.title.length }) });
-  if (kit.tags.length !== 13) issues.push({ level: "warning", message: t("Etsy autorise 13 tags : tu en as {n}.", { n: kit.tags.length }) });
+  if (kit.tags.length !== 13) issues.push({ level: "warning", message: t("Garde 13 mots-clés au maximum : tu en as {n}.", { n: kit.tags.length }) });
   const longTags = kit.tags.filter((t) => t.length > 20);
   if (longTags.length) issues.push({ level: "error", message: t("Tags de plus de 20 caractères : {tags}", { tags: longTags.join(", ") }) });
   const lower = (kit.title + " " + kit.description).toLowerCase();
   const disclosure = aiDisclosure(opts.language).toLowerCase().slice(0, 30);
   if (!/(intelligence artificielle|artificial intelligence|ia\b|\bai\b|inteligencia artificial|ki-)/i.test(kit.description) && !lower.includes(disclosure))
-    issues.push({ level: "error", message: t("La description doit indiquer que le contenu a été créé avec l'aide de l'IA (règles de créativité Etsy).") });
-  if (HYPE.test(lower)) issues.push({ level: "error", message: t("Promesse excessive détectée (résultat garanti, guérison, gain d'argent…). Etsy interdit les allégations trompeuses ou médicales.") });
+    issues.push({ level: "error", message: t("La description doit indiquer que le contenu a été créé avec l'aide de l'IA (obligatoire sur Amazon KDP, conseillé partout).") });
+  if (HYPE.test(lower)) issues.push({ level: "error", message: t("Promesse excessive détectée (résultat garanti, guérison, gain d'argent…). Les plateformes de vente interdisent les allégations trompeuses ou médicales.") });
   const brands = BRANDS.filter((b) => new RegExp(`\\b${b}\\b`, "i").test(lower));
   if (brands.length && !/(non affilié|not affiliated|no afiliad|nicht verbunden|non affiliat)/i.test(kit.description))
     issues.push({ level: "warning", message: t("Marques citées ({brands}) : n'utilise pas leurs logos et précise que le guide n'est pas affilié à ces marques.", { brands: brands.join(", ") }) });
@@ -68,7 +68,7 @@ export function checkEtsyCompliance(kit: EtsyKit, opts: { sensitive: string | nu
 
 export const ETSY_CHECKLIST = [
   tk("Relis et personnalise l'e-book (exemples, anecdotes, ta touche) : c'est ce qui fait sa valeur et ce qui le distingue des autres."),
-  tk("Indique dans la description que le contenu a été créé avec l'aide de l'IA (règles de créativité Etsy, catégorie « Designed by »)."),
+  tk("Indique dans la description que le contenu a été créé avec l'aide de l'IA (obligatoire sur Amazon KDP, conseillé partout)."),
   tk("Ne revends pas un fichier tel quel venu d'ailleurs (PLR, packs revendus) : seul ton contenu, créé avec tes choix, est autorisé."),
   tk("Sur les sujets santé, nutrition, argent : aucune promesse de résultat, aucune allégation médicale, et un avertissement visible."),
   tk("N'utilise pas les logos des marques citées (TikTok, Vinted, Canva…) et ne laisse pas croire à un partenariat."),

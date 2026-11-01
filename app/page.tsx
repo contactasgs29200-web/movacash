@@ -17,8 +17,8 @@ export default async function Home() {
   const { t, locale } = await getT();
   const FAQ: [string, string][] = [
     [t("Est-ce que je vais vraiment gagner de l'argent ?"), t("Personne ne peut te le garantir, et nous non plus. Ce qui met les chances de ton côté : un sujet précis, une fiche soignée et de la régularité. Les premières ventes peuvent prendre du temps, ou ne pas venir.")],
-    [t("Etsy accepte les e-books créés avec l'IA ?"), t("Oui, à condition de l'indiquer dans la description de l'annonce. Movacash ajoute cette mention automatiquement dans la fiche et dans le PDF.")],
-    [t("Si tout le monde utilise les mêmes idées, ça ne marche plus ?"), t("Chaque e-book est rédigé à partir de tes choix (public, ton, consignes). Deux personnes sur le même sujet obtiennent deux livres différents. Comme partout sur Etsy, l'exécution compte plus que l'idée.")],
+    [t("Où vendre des e-books créés avec l'IA ?"), t("Sur Gumroad, Payhip ou Amazon KDP, en indiquant que l'e-book est créé avec l'IA. Movacash ajoute cette mention dans la fiche et dans le PDF. Etsy, lui, n'accepte plus les guides pratiques écrits avec l'IA.")],
+    [t("Si tout le monde utilise les mêmes idées, ça ne marche plus ?"), t("Chaque e-book est rédigé à partir de tes choix (public, ton, consignes). Deux personnes sur le même sujet obtiennent deux livres différents. Comme partout en ligne, l'exécution compte plus que l'idée.")],
     [t("Je ne sais pas écrire. C'est un problème ?"), t("Non. L'IA écrit tout pour toi : le plan, les chapitres et les exemples. Un chapitre ne te plaît pas ? Tu le régénères en un clic.")],
     [t("À quoi servent les questions ?"), t("On regarde ton temps, ton niveau, ce que tu connais déjà et ton style, pour écarter ce qui ne te correspond pas et te proposer 3 idées réalistes, avec un plan de 30 jours.")],
     [t("Je peux arrêter quand je veux ?"), t("Oui, l'abonnement est sans engagement et se résilie depuis ton compte. Il reste actif jusqu'à la fin de la période payée. Il n'y a pas de remboursement d'une période entamée.")],
@@ -28,7 +28,7 @@ export default async function Home() {
   // Hors français, seuls les sujets déjà traduits sont montrés
   const sample = (await localizeIdeas([...best].sort(() => Math.random() - 0.5), locale, { onlyTranslated: true })).slice(0, 12);
   // Données structurées : ce que Google et les assistants IA lisent pour décrire et citer Movacash.
-  const description = t("Trouve une idée d'e-book adaptée à Etsy, laisse l'IA l'écrire (40 à 60 pages, PDF prêt à vendre), puis récupère la fiche Etsy complète : titre, 13 tags, description et miniature. Sans engagement.");
+  const description = t("Trouve une idée d'e-book à vendre en ligne, laisse l'IA l'écrire (40 à 60 pages, PDF prêt à vendre), puis récupère la fiche produit complète : titre, mots-clés, description et couverture. Sans engagement.");
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -57,7 +57,7 @@ export default async function Home() {
           <Constellation />
           <div className="wrap hero">
           <div className="hero-copy">
-            <p className="kicker"><i aria-hidden="true" />{t("L'atelier des e-books à vendre sur Etsy")}</p>
+            <p className="kicker"><i aria-hidden="true" />{t("L'atelier des e-books à vendre en ligne")}</p>
             <h1 className="hero-title"><span className="l">{t("Crée ton premier business")}</span> <span className="soft"><span className="l">{t("dès maintenant.")}</span></span></h1>
             <TypedLead
               plain={t("Trouve l'idée de ton premier guide, laisse l'IA l'écrire avec toi et ")}
@@ -66,7 +66,7 @@ export default async function Home() {
             <div className="ctas">
               <Link className="btn btn-white btn-lg" href="/quiz">{t("Lancer mon business")} <span aria-hidden="true">→</span></Link>
             </div>
-            <p className="fine-line">{t("Aucun revenu garanti : tes ventes dépendent de ton sujet, de ta fiche Etsy et de ta régularité.")}</p>
+            <p className="fine-line">{t("Aucun revenu garanti : tes ventes dépendent de ton sujet, de ta fiche produit et de ta régularité.")}</p>
           </div>
           <div className="hero-visual">
             <div className="phone-stage">
@@ -88,7 +88,7 @@ export default async function Home() {
               [t("Choisis un sujet"), t("{total} idées classées par potentiel, concurrence et prix conseillé (nos estimations). Musculation, Vinted, vidéos IA, budget, chiots…", { total })],
               [t("Génère l'e-book"), t("Plan détaillé puis chapitres de 2 000 mots : méthodes, exemples, exercices, check-lists, plan d'action.")],
               [t("Relis et personnalise"), t("Modifie chaque chapitre, régénère ce qui ne te plaît pas, choisis ta couverture.")],
-              [t("Publie sur Etsy"), t("PDF A4, A5 ou US Letter, titre, 13 tags, description et visuels de fiche. Tu fixes ton prix.")],
+              [t("Publie en ligne"), t("PDF A4, A5 ou US Letter, titre, 13 tags, description et visuels de fiche. Tu fixes ton prix.")],
             ].map(([titre, d], i) => (
               <div className="step" key={titre}>
                 <span className="n">{i + 1}</span>
@@ -102,7 +102,7 @@ export default async function Home() {
         <section className="wrap section" style={{ paddingTop: 0 }}>
           <div className="section-head">
             <p className="eyebrow">{t("La base d'idées")}</p>
-            <h2>{t("{total} idées de formations", { total })} <em>{t("pensées pour Etsy.")}</em></h2>
+            <h2>{t("{total} idées de formations", { total })} <em>{t("pensées pour la vente en ligne.")}</em></h2>
             <p>{t("Sans API, sans attente : la base est déjà là, avec un prix conseillé (estimé) pour chaque sujet. Un aperçu :")}</p>
           </div>
           {sample.length > 0 && <div className="ideas-wall">
@@ -122,8 +122,8 @@ export default async function Home() {
               {[
                 [t("Un e-book de 40 à 60 pages"), t("Structuré, concret, avec exercices et plan d'action. Sans statistiques inventées ni promesses miracles.")],
                 [t("Une couverture professionnelle"), t("3 styles, palettes au choix, intégrée au PDF avec sommaire et pagination.")],
-                [t("La fiche Etsy complète"), t("Titre de 140 caractères, 13 tags, description et une miniature, avec la mention IA exigée par Etsy.")],
-                [t("Les garde-fous Etsy"), t("Avertissements automatiques pour la santé et l'argent, contrôle des promesses excessives et des marques citées.")],
+                [t("La fiche produit complète"), t("Titre, mots-clés, description et une couverture, avec la mention IA demandée par les plateformes.")],
+                [t("Les garde-fous des plateformes"), t("Avertissements automatiques pour la santé et l'argent, contrôle des promesses excessives et des marques citées.")],
               ].map(([titre, d], i) => (
                 <li key={titre}>
                   <span className="ic">{i + 1}</span>
@@ -160,17 +160,17 @@ export default async function Home() {
               <h3>{t("Il fait")}</h3>
               <ul>
                 <li>{t("Te faire gagner des heures de rédaction et de mise en page.")}</li>
-                <li>{t("Te proposer des sujets adaptés à Etsy et à ton profil.")}</li>
+                <li>{t("Te proposer des sujets adaptés à la vente en ligne et à ton profil.")}</li>
                 <li>{t("Produire des guides utiles que tu peux vendre au prix que tu choisis.")}</li>
-                <li>{t("Respecter les règles Etsy sur l'IA.")}</li>
+                <li>{t("Respecter les règles des plateformes sur l'IA.")}</li>
               </ul>
             </div>
             <div>
               <h3>{t("Il ne fait pas")}</h3>
               <ul>
                 <li>{t("Garantir des ventes ou un revenu.")}</li>
-                <li>{t("Publier à ta place sur Etsy.")}</li>
-                <li>{t("Te dispenser des règles d'Etsy : tu restes responsable de ce que tu vends.")}</li>
+                <li>{t("Publier à ta place sur les plateformes.")}</li>
+                <li>{t("Te dispenser des règles des plateformes : tu restes responsable de ce que tu vends.")}</li>
                 <li>{t("Rembourser une période entamée (voir CGV).")}</li>
               </ul>
             </div>
@@ -196,14 +196,14 @@ export default async function Home() {
         <section className="wrap section narrow home-guides" style={{ paddingTop: 0, marginInline: "auto" }}>
           <div className="section-head">
             <p className="eyebrow">{t("Guides gratuits")}</p>
-            <h2>{t("Apprendre à vendre des e-books sur Etsy")}</h2>
+            <h2>{t("Apprendre à vendre des e-books en ligne")}</h2>
           </div>
           <ul>
             {GUIDES.slice(0, 6).map((g) => {
               const l = guideLang(locale, g.slug);
               return <li key={g.slug}><Link href={`/guides/${g.slug}?lang=${l}`}>{guideText(g, l).title}</Link></li>;
             })}
-            {locale === "fr" && <li><Link href="/idees?lang=fr">Idées d'e-books à vendre sur Etsy, par thème</Link></li>}
+            {locale === "fr" && <li><Link href="/idees?lang=fr">Idées d'e-books à vendre en ligne, par thème</Link></li>}
           </ul>
           <p><Link href={`/guides?lang=${guideLang(locale)}`}>{t("Tous les guides")} →</Link></p>
         </section>
