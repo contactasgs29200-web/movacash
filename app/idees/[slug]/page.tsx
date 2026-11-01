@@ -83,8 +83,8 @@ export default async function Theme({ params }: Props) {
         <h2>Pour aller plus loin</h2>
         <ul>
           <li><Link href="/guides/creer-ebook-ia?lang=fr">Créer un e-book avec l'IA : la méthode pas à pas</Link></li>
-          <li><Link href="/guides/fiche-etsy-produit-numerique?lang=fr">Rédiger la fiche produit : titre, mots-clés et description</Link></li>
-          <li><Link href="/guides/prix-ebook-etsy?lang=fr">Quel prix pour un e-book en ligne ?</Link></li>
+          <li><Link href="/guides/fiche-produit-ebook?lang=fr">Rédiger la fiche produit : titre, mots-clés et description</Link></li>
+          <li><Link href="/guides/prix-ebook?lang=fr">Quel prix pour un e-book en ligne ?</Link></li>
         </ul>
         <h2>Autres thèmes</h2>
         <p className="idees-autres">
