@@ -1,5 +1,5 @@
 // Langues dans lesquelles un e-book peut être rédigé : les mêmes que celles du site.
-// Pour chacune : le nom donné à Gemini, la mention IA (exigée par Amazon KDP, conseillée partout), les avertissements des sujets sensibles et les mots de la miniature.
+// Pour chacune : le nom donné à Gemini, la mention IA (règle Etsy), les avertissements des sujets sensibles et les mots de la miniature.
 
 export interface ContentLang {
   fr: string; // nom en français, utilisé dans les consignes envoyées à Gemini

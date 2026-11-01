@@ -24,7 +24,7 @@ export function GET() {
   const fr = GUIDES.map((g) => guide(g.fr, `${APP_URL}/guides/${g.slug}?lang=fr`)).join("\n\n");
   const body = `# ${APP_NAME}: full guides
 
-> ${APP_NAME} (${APP_URL}) is a web app that helps people create e-books with AI and sell them as digital downloads on online platforms (Gumroad, Payhip, Amazon KDP). Not affiliated with these platforms. No income is guaranteed. Summary: ${APP_URL}/llms.txt
+> ${APP_NAME} (${APP_URL}) is a web app that helps people create e-books with AI and sell them as digital downloads on Etsy. Not affiliated with Etsy. No income is guaranteed. Summary: ${APP_URL}/llms.txt
 
 # English
 

@@ -82,8 +82,8 @@ export default function Miniature(p: Props) {
   return (
     <div className="at-mini">
       <div>
-        <canvas ref={canvas} width={2000} height={1500} aria-label={t("Aperçu de la couverture produit")} />
-        <p className="at-gen-note">{t("2000 × 1500 px, une image de couverture acceptée par Gumroad et Payhip.")}</p>
+        <canvas ref={canvas} width={2000} height={1500} aria-label={t("Aperçu de la miniature Etsy")} />
+        <p className="at-gen-note">{t("2000 × 1500 px, le format conseillé par Etsy pour la première image de l'annonce.")}</p>
       </div>
       <div className="at-styles">
         <p className="at-kicker">{t("Mise en page")}</p>

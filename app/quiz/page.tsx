@@ -15,8 +15,8 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getT();
   return {
-    title: t("Trouve ton idée d'e-book à vendre en ligne : questionnaire gratuit"),
-    description: t("Réponds à quelques questions sur ton temps, ton niveau et tes centres d'intérêt : on te propose 3 idées d'e-books adaptées à la vente en ligne, avec un plan de 30 jours."),
+    title: t("Trouve ton idée d'e-book à vendre sur Etsy : questionnaire gratuit"),
+    description: t("Réponds à quelques questions sur ton temps, ton niveau et tes centres d'intérêt : on te propose 3 idées d'e-books adaptées à Etsy, avec un plan de 30 jours."),
   };
 }
 

@@ -23,7 +23,7 @@ export default async function OgImage() {
           <span>{t("Crée ton premier business")}</span>
           <span style={{ color: "#8a8a8a" }}>{t("dès maintenant.")}</span>
         </div>
-        <div style={{ fontSize: 30, color: "#bdbdbd" }}>{t("Créez des e-books de qualité à vendre en ligne")}</div>
+        <div style={{ fontSize: 30, color: "#bdbdbd" }}>{t("Créez des e-books de qualité à vendre sur Etsy")}</div>
       </div>
     ),
     size,

@@ -21,7 +21,7 @@ export default function Mentions() {
       <h2>Médiation de la consommation</h2>
       <p>En cas de litige non résolu avec le support, le consommateur peut saisir gratuitement le médiateur de la consommation : {fill(l.mediateurNom)}{l.mediateurSite ? `, ${l.mediateurSite}` : ""}{l.mediateurAdresse ? `, ${l.mediateurAdresse}` : ""}.</p>
       <h2>Marques</h2>
-      <p>Gumroad, Payhip, Amazon, Etsy, TikTok, Vinted, Canva et les autres marques citées appartiennent à leurs propriétaires respectifs. {APP_NAME} n'est affilié à aucune d'entre elles.</p>
+      <p>Etsy, TikTok, Vinted, Canva et les autres marques citées appartiennent à leurs propriétaires respectifs. {APP_NAME} n'est affilié à aucune d'entre elles.</p>
     </LegalPage>
   );
 }

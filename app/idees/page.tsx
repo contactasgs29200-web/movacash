@@ -8,8 +8,8 @@ import { APP_NAME, APP_URL } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
-const TITRE = "Idées d'e-books à vendre en ligne, par thème";
-const DESC = "Plus de 500 idées d'e-books adaptées à la vente en ligne, classées en 31 thèmes (sport, cuisine, parentalité, budget, IA…), avec demande, concurrence et prix conseillé.";
+const TITRE = "Idées d'e-books à vendre sur Etsy, par thème";
+const DESC = "Plus de 500 idées d'e-books adaptées à Etsy, classées en 31 thèmes (sport, cuisine, parentalité, budget, IA…), avec demande, concurrence et prix conseillé.";
 const URL = `${APP_URL}/idees?lang=fr`;
 
 export const metadata: Metadata = { title: TITRE, description: DESC, openGraph: { title: TITRE, description: DESC, type: "website", locale: "fr_FR" } };
@@ -36,7 +36,7 @@ export default async function Idees() {
         <nav className="guide-fil" aria-label="Fil d'Ariane"><Link href="/?lang=fr">Accueil</Link> / Idées d'e-books</nav>
         <h1 className="q-title">{TITRE}</h1>
         <p>
-          La base de {APP_NAME} rassemble {total} idées d'e-books pensées pour la vente en ligne : des sujets précis, pour un public précis, avec une estimation de la demande,
+          La base de {APP_NAME} rassemble {total} idées d'e-books pensées pour Etsy : des sujets précis, pour un public précis, avec une estimation de la demande,
           de la concurrence et un prix conseillé. Choisis un thème pour voir des exemples, ou réponds au questionnaire pour recevoir les 3 idées qui te correspondent.
         </p>
         <div className="idees-themes">
@@ -49,11 +49,11 @@ export default async function Idees() {
         </div>
         <aside className="guide-cta">
           <h2>Trouve ton idée d'e-book en 2 minutes</h2>
-          <p>Réponds au questionnaire gratuit : {APP_NAME} choisit pour toi 3 sujets dans la base, puis écrit l'e-book et prépare la fiche produit.</p>
+          <p>Réponds au questionnaire gratuit : {APP_NAME} choisit pour toi 3 sujets dans la base, puis écrit l'e-book et prépare la fiche Etsy.</p>
           <Link className="btn btn-accent btn-lg" href="/quiz?lang=fr">Commencer le questionnaire →</Link>
-          <p className="dim" style={{ fontSize: 13, marginTop: 12 }}>{APP_NAME} n'est affilié à aucune plateforme de vente. Aucun revenu n'est garanti.</p>
+          <p className="dim" style={{ fontSize: 13, marginTop: 12 }}>{APP_NAME} n'est pas affilié à Etsy. Aucun revenu n'est garanti.</p>
         </aside>
-        <p><Link href="/guides?lang=fr">Lire nos guides pour vendre des e-books en ligne →</Link></p>
+        <p><Link href="/guides?lang=fr">Lire nos guides pour vendre des e-books sur Etsy →</Link></p>
       </main>
       <FunnelFooter />
     </div>

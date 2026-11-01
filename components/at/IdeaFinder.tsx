@@ -82,7 +82,7 @@ export default function IdeaFinder({ initialQ = "" }: { initialQ?: string }) {
 
       {!res ? (
         <div className="at-carte at-colonne" style={{ marginTop: 24 }}>
-          <p>{rich(t("Appuie sur <1>Générer</1> : on te propose des idées d'e-books à vendre en ligne, classées selon tes réponses au questionnaire. Un sujet dans le champ, c'est facultatif."), { 1: (s) => <b>{s}</b> })}</p>
+          <p>{rich(t("Appuie sur <1>Générer</1> : on te propose des idées d'e-books à vendre sur Etsy, classées selon tes réponses au questionnaire. Un sujet dans le champ, c'est facultatif."), { 1: (s) => <b>{s}</b> })}</p>
         </div>
       ) : res.ideas.length === 0 ? (
         <div className="at-carte at-colonne" style={{ marginTop: 24 }}>

@@ -61,7 +61,7 @@ export function etapesProvisoires(t: T, planFini: boolean, chapitres = 9): GenSt
   return [
     { label: t("Plan de l'e-book"), state: planFini ? "ok" : "now" },
     ...Array.from({ length: chapitres }, (_, k) => ({ label: t("Chapitre {n}", { n: k + 1 }), state: (planFini && k === 0 ? "now" : "") as GenStep["state"] })),
-    { label: t("Fiche produit (titre, mots-clés, description)"), state: "" },
-    { label: t("Couverture produit"), state: "" },
+    { label: t("Fiche Etsy (titre, tags, description)"), state: "" },
+    { label: t("Miniature Etsy"), state: "" },
   ];
 }

@@ -4,13 +4,13 @@ import Link from "next/link";
 import { useT } from "@/lib/i18n/client";
 import { tk } from "@/lib/i18n/t";
 
-// Guide court pour les abonnés qui débutent la vente en ligne (Gumroad, Payhip) : 5 étapes d'une ligne, cochables, et le support à portée de clic.
-const ETAPES: { titre: string; detail: string; liens?: [string, string][] }[] = [
-  { titre: tk("Ouvre ta boutique Gumroad ou Payhip"), detail: tk("Inscription gratuite : un e-mail, le nom de ta boutique, puis ton compte bancaire ou PayPal pour recevoir tes ventes."), liens: [["https://gumroad.com", tk("Ouvrir Gumroad")], ["https://payhip.com", tk("Ouvrir Payhip")]] },
+// Guide court pour les abonnés qui débutent sur Etsy : 5 étapes d'une ligne, cochables, et le support à portée de clic.
+const ETAPES: { titre: string; detail: string; lien?: [string, string] }[] = [
+  { titre: tk("Ouvre ta boutique Etsy"), detail: tk("En 10 minutes : nom de boutique, pièce d'identité et IBAN pour recevoir tes ventes."), lien: ["https://www.etsy.com/sell", tk("Ouvrir Etsy")] },
   { titre: tk("Choisis ton idée et crée ton e-book"), detail: tk("Juste en dessous : « Générer », puis « Créer cet e-book ». L'IA écrit tout.") },
   { titre: tk("Télécharge ton PDF"), detail: tk("Dans ton e-book, onglet « Export PDF ».") },
-  { titre: tk("Crée ton produit en ligne"), detail: tk("Sur Gumroad ou Payhip, crée un produit numérique. Copie le titre, les mots-clés et la description de l'onglet « Fiche produit », ajoute la couverture et le PDF, et indique que l'e-book est créé avec l'IA.") },
-  { titre: tk("Publie, puis recommence"), detail: tk("Gumroad et Payhip prennent une commission sur chaque vente, sans abonnement obligatoire. Ajoute ensuite un nouvel e-book régulièrement pour faire vivre ta boutique.") },
+  { titre: tk("Crée ton annonce sur Etsy"), detail: tk("« Ajouter une annonce », type « Numérique ». Copie le titre, les 13 tags et la description de l'onglet « Fiche Etsy », ajoute la miniature et le PDF.") },
+  { titre: tk("Publie, puis recommence"), detail: tk("Etsy facture 0,20 $ par annonce. Ajoute ensuite un nouvel e-book régulièrement pour faire vivre ta boutique.") },
 ];
 const CLE = "mc_premiers_pas";
 
@@ -64,7 +64,7 @@ export default function PremiersPas({ apresGeneration = false }: { apresGenerati
     <section className={apresGeneration ? "pp pp-pret" : "pp"}>
       <button type="button" className="pp-tete" onClick={basculer} aria-expanded={ouvert}>
         <span>
-          <b>{apresGeneration ? t("Ton e-book est prêt : comment le mettre en vente en ligne") : t("Tes premiers pas pour vendre en ligne")}</b>
+          <b>{apresGeneration ? t("Ton e-book est prêt : comment le mettre en vente sur Etsy") : t("Tes premiers pas sur Etsy")}</b>
           <small>{t("{n} sur {total} faits", { n: etapes.filter((e) => faits.includes(e.k)).length, total: etapes.length })}</small>
         </span>
         <i aria-hidden="true">{ouvert ? "−" : "+"}</i>
@@ -79,7 +79,7 @@ export default function PremiersPas({ apresGeneration = false }: { apresGenerati
                   <b>{t(e.titre)}</b>
                   <p>
                     {insecable(t(e.detail))}
-                    {e.liens?.map(([h, l]) => <span key={h}> <a href={h} target="_blank" rel="noopener noreferrer">{t(l)} ↗</a></span>)}
+                    {e.lien && <> <a href={e.lien[0]} target="_blank" rel="noopener noreferrer">{t(e.lien[1])} ↗</a></>}
                   </p>
                 </div>
               </li>
@@ -88,7 +88,7 @@ export default function PremiersPas({ apresGeneration = false }: { apresGenerati
           <div className="pp-aide">
             <p>{t("Bloqué à une étape ? Pose ta question : un conseiller Movacash te répond au plus vite.")}</p>
             <button type="button" className="at-btn" onClick={support}>{t("Poser ma question")}</button>
-            <Link href="/app/regles-etsy" className="pp-regles">{t("Les règles des plateformes à connaître")}</Link>
+            <Link href="/app/regles-etsy" className="pp-regles">{t("Les règles d'Etsy à connaître")}</Link>
           </div>
         </>
       )}

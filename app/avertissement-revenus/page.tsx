@@ -15,7 +15,7 @@ export default function IncomeDisclaimer() {
       <ul>
         <li>La plupart des boutiques en ligne réalisent peu ou pas de ventes au début ; certaines n'en réalisent jamais.</li>
         <li>Les résultats dépendent du sujet choisi, de la qualité et de la relecture de l'e-book, de la fiche produit, des visuels, du prix, de la concurrence, de la promotion et du temps investi.</li>
-        <li>Les plateformes de vente (Gumroad, Payhip, Amazon KDP…) prélèvent des frais (commission sur les ventes, frais de paiement) et peuvent modifier leurs règles ou retirer des produits.</li>
+        <li>Etsy facture des frais (mise en vente, commission sur les ventes, frais de paiement) et peut modifier ses règles ou suspendre des annonces.</li>
         <li>Les exemples de prix (par exemple 5 à 10 € par e-book) sont des fourchettes observées pour ce type de produit, pas une estimation de vos revenus.</li>
       </ul>
       <p>Abonnez-vous si l'outil vous fait gagner du temps pour créer des produits de qualité, pas sur la base d'une promesse de revenus.</p>

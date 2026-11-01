@@ -32,7 +32,7 @@ const LOGO_PAYPAL: Logo = { vb: "0 0 24 24", couleur: "#009cde", paths: [{ d: PA
 const LOGO_WISE: Logo = { vb: "0 0 24 24", paths: [{ d: WISE }] };
 const LOGO_BANQUE: Logo = { vb: "0 0 24 24", paths: [{ d: BANQUE }] };
 
-// Gumroad et Payhip versent les ventes sur un compte bancaire ou PayPal.
+// Etsy verse les ventes sur un compte bancaire (IBAN) : pas de PayPal ici.
 const PAIEMENTS: Choix[] = [
   { id: "paypal", titre: "PayPal", detail: tk("retrait sur ton compte PayPal"), logo: LOGO_PAYPAL },
   { id: "credit-agricole", titre: "Crédit Agricole", detail: tk("sur ton compte Crédit Agricole"), logo: LOGO_CREDIT_AGRICOLE },
@@ -53,7 +53,7 @@ const DISCRETION: Choix[] = [
   { id: "non", titre: tk("Non"), detail: tk("me montrer ne me gêne pas") },
 ];
 const FICHE: Choix[] = [
-  { id: "oui", titre: tk("Oui"), detail: tk("on écrit ton e-book, ta fiche produit et ta couverture à ta place") },
+  { id: "oui", titre: tk("Oui"), detail: tk("on écrit ton e-book, ta fiche Etsy et ta miniature à ta place") },
   { id: "non", titre: tk("Non"), detail: tk("je préfère l'écrire moi-même") },
 ];
 const JOURS: Record<string, number> = { aujourdhui: 0, semaine: 7, mois: 30 };
@@ -147,10 +147,10 @@ export default function CreateFunnel({ idea, author, defaults }: { idea: Idea; a
   const dateVisee = () => {
     const j = JOURS[r.echeance];
     if (j === undefined) return null;
-    if (j === 0) return t("Tu as dit « aujourd'hui ». En t'y mettant maintenant, ton e-book peut être en vente en ligne ce soir.");
+    if (j === 0) return t("Tu as dit « aujourd'hui ». En t'y mettant maintenant, ton e-book peut être en vente sur Etsy ce soir.");
     const d = new Date();
     d.setDate(d.getDate() + j);
-    return t("En t'y mettant ce soir, ton e-book peut être en vente en ligne avant le {date}.", { date: d.toLocaleDateString(locale, { weekday: "long", day: "numeric", month: "long" }) });
+    return t("En t'y mettant ce soir, ton e-book peut être en vente sur Etsy avant le {date}.", { date: d.toLocaleDateString(locale, { weekday: "long", day: "numeric", month: "long" }) });
   };
 
   // Dès le clic : écran de génération (le plan s'écrit côté serveur pendant ce temps), sans temps mort.
@@ -244,7 +244,7 @@ export default function CreateFunnel({ idea, author, defaults }: { idea: Idea; a
                 {envoi ? t("Préparation du plan…") : t("Lancer mon business")} <span aria-hidden="true">→</span>
               </button>
               {erreur && <p className="mf-erreur">{erreur}</p>}
-              <p className="mf-mention">{t("Un scénario calculé sur tes réponses, pas une promesse : tes ventes dépendent de ton sujet, de ta fiche produit et de ta régularité.")}</p>
+              <p className="mf-mention">{t("Un scénario calculé sur tes réponses, pas une promesse : tes ventes dépendent de ton sujet, de ta fiche Etsy et de ta régularité.")}</p>
             </>
           )}
         </section>

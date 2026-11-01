@@ -69,7 +69,7 @@ export default function Settings({ user }: { user: U }) {
           <div>
             <label className="label" htmlFor="s-author">{t("Nom d'auteur sur les e-books")}</label>
             <input id="s-author" className="input" value={profile.author_name} maxLength={100} placeholder={profile.name || t("Ex. Camille Martin")} onChange={(e) => setProfile({ ...profile, author_name: e.target.value })} />
-            <p className="mt-1 text-xs text-slate-500">{t("Un pseudonyme ou le nom de ta boutique, au choix.")}</p>
+            <p className="mt-1 text-xs text-slate-500">{t("Un pseudonyme ou le nom de ta boutique Etsy, au choix.")}</p>
           </div>
           <div>
             <label className="label" htmlFor="s-lang">{t("Langue de tes e-books par défaut")}</label>
@@ -91,7 +91,7 @@ export default function Settings({ user }: { user: U }) {
         </div>
         <label className="flex items-start gap-2 text-sm text-slate-700">
           <input type="checkbox" className="mt-1 accent-white" checked={profile.email_tips} onChange={(e) => setProfile({ ...profile, email_tips: e.target.checked })} />
-          {t("Recevoir de temps en temps des conseils pour vendre en ligne (désinscription en un clic).")}
+          {t("Recevoir de temps en temps des conseils pour vendre sur Etsy (désinscription en un clic).")}
         </label>
         <div className="flex flex-wrap items-center gap-3">
           <button className="btn-primary" disabled={pA.busy}>{pA.busy ? t("Enregistrement…") : t("Enregistrer")}</button>

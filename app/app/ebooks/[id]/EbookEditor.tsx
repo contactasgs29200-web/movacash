@@ -69,7 +69,7 @@ export default function EbookEditor({ id, autostart }: { id: number; autostart: 
       try {
         setPhase("chapitres");
         for (const c of list.filter((c) => c.status !== "done")) await generateChapter(c.idx);
-        // Fiche produit puis photo de la miniature, générées automatiquement à la fin
+        // Fiche Etsy puis photo de la miniature, générées automatiquement à la fin
         setPhase("etsy");
         await fetch(`/api/ebooks/${id}/etsy`, { method: "POST" });
         setPhase("photo");
@@ -149,7 +149,7 @@ export default function EbookEditor({ id, autostart }: { id: number; autostart: 
       {!running && ready && fini && <div className="mt-5"><PremiersPas apresGeneration /></div>}
 
       <div className="mt-6 flex gap-1 overflow-x-auto border-b border-slate-200">
-        {([["contenu", tk("Contenu")], ["miniature", tk("Couverture produit")], ["etsy", tk("Fiche produit")], ["couverture", tk("Couverture du PDF")], ["export", tk("Export PDF")]] as const).map(([k, l]) => (
+        {([["contenu", tk("Contenu")], ["miniature", tk("Miniature Etsy")], ["etsy", tk("Fiche Etsy")], ["couverture", tk("Couverture du PDF")], ["export", tk("Export PDF")]] as const).map(([k, l]) => (
           <button key={k} onClick={() => setTab(k)} className={`-mb-px shrink-0 border-b-2 px-4 py-2 text-sm font-medium ${tab === k ? "border-brand-600 text-brand-700" : "border-transparent text-slate-500 hover:text-slate-800"}`}>
             {t(l)}
           </button>
@@ -184,7 +184,7 @@ export default function EbookEditor({ id, autostart }: { id: number; autostart: 
 
 const PHRASES: Record<Exclude<Phase, null>, string> = {
   chapitres: tk("Rédaction de ton e-book"),
-  etsy: tk("Préparation de ta fiche produit"),
+  etsy: tk("Préparation de ta fiche Etsy"),
   photo: tk("Création de ta miniature"),
 };
 
@@ -197,8 +197,8 @@ function Generation({ chapters, current, phase }: { chapters: Chapter[]; current
       label: `${t("Chapitre {n}", { n: c.idx + 1 })} · ${c.title}`,
       state: (c.status === "done" ? "ok" : c.idx === current || (current === null && phase === "chapitres" && c.idx === chapters.find((x) => x.status !== "done")?.idx) ? "now" : "") as GenStep["state"],
     })),
-    { label: t("Fiche produit (titre, mots-clés, description)"), state: phase === "etsy" ? "now" : phase === "photo" ? "ok" : "" },
-    { label: t("Couverture produit"), state: phase === "photo" ? "now" : "" },
+    { label: t("Fiche Etsy (titre, tags, description)"), state: phase === "etsy" ? "now" : phase === "photo" ? "ok" : "" },
+    { label: t("Miniature Etsy"), state: phase === "photo" ? "now" : "" },
   ];
   return <GenerationScreen className="mt-4" title={t(PHRASES[phase])} steps={steps} note={t("Garde cette page ouverte. Compte 30 à 60 secondes par chapitre.")} />;
 }
@@ -348,8 +348,8 @@ function EtsyTab({ ebook, chapters, cover, ready, onSaved }: { ebook: Ebook; cha
   if (!kit)
     return (
       <div className="card">
-        <p className="text-sm">{ready ? t("Génère la fiche produit de cet e-book.") : t("La fiche produit sera générée automatiquement une fois tous les chapitres rédigés.")}</p>
-        <button className="btn-primary mt-3" disabled={loading || !ready} onClick={generate}>{loading ? t("Génération…") : t("Générer la fiche produit")}</button>
+        <p className="text-sm">{ready ? t("Génère la fiche produit Etsy de cet e-book.") : t("La fiche Etsy sera générée automatiquement une fois tous les chapitres rédigés.")}</p>
+        <button className="btn-primary mt-3" disabled={loading || !ready} onClick={generate}>{loading ? t("Génération…") : t("Générer la fiche Etsy")}</button>
       </div>
     );
 
@@ -405,7 +405,7 @@ function EtsyTab({ ebook, chapters, cover, ready, onSaved }: { ebook: Ebook; cha
         </div>
         <div className="grid gap-3 md:grid-cols-2 text-sm">
           <p><strong>{t("Prix conseillé :")}</strong> {kit.priceSuggestion}</p>
-          <p><strong>{t("Catégorie conseillée :")}</strong> {kit.category}</p>
+          <p><strong>{t("Catégorie Etsy :")}</strong> {kit.category}</p>
         </div>
         <div className="flex gap-2">
           <button className="btn-primary" onClick={save}>{t("Enregistrer la fiche")}</button>
@@ -415,7 +415,7 @@ function EtsyTab({ ebook, chapters, cover, ready, onSaved }: { ebook: Ebook; cha
 
       <div className="card">
         <p className="text-sm font-semibold">{t("Images de la fiche (2000 × 1500 px)")}</p>
-        <p className="muted mt-1">{t("Voici 3 visuels prêts à télécharger pour ta page produit.")}</p>
+        <p className="muted mt-1">{t("Etsy autorise jusqu'à 10 images. Voici 3 visuels prêts à télécharger.")}</p>
         <button
           className="btn-secondary mt-3"
           onClick={async () =>
@@ -464,8 +464,8 @@ function ExportTab({ ebook, ready }: { ebook: Ebook; ready: boolean }) {
           </a>
         ))}
       </div>
-      <p className="muted">{t("Sur Gumroad ou Payhip, ajoute le PDF comme fichier du produit.")}</p>
-      <p className="muted">{t("Prochaine étape : mets-le en vente.")} <a href="/app" style={{ textDecoration: "underline" }}>{t("Tes premiers pas pour vendre en ligne")}</a></p>
+      <p className="muted">{t("Sur Etsy, ajoute le PDF comme fichier numérique de l'annonce (20 Mo max par fichier).")}</p>
+      <p className="muted">{t("Prochaine étape : mets-le en vente.")} <a href="/app" style={{ textDecoration: "underline" }}>{t("Tes premiers pas sur Etsy")}</a></p>
     </div>
   );
 }

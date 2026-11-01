@@ -1,4 +1,4 @@
-// Couverture produit dessinée côté navigateur (canvas → PNG 2000 × 1500).
+// Miniature Etsy dessinée côté navigateur (canvas → PNG 2000 × 1500, le format conseillé par Etsy).
 // Principe : une vraie mise en page de graphiste (typo, filets, bandeaux, photo réelle), jamais d'effets « IA »
 // (pas de doré, pas de 3D, pas de chiffres géants, pas de badges).
 

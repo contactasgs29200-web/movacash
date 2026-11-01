@@ -12,11 +12,11 @@ export default async function FunnelFooter() {
       <div className="wrap">
         <div>
           <span className="logo" style={{ fontSize: 20 }}><LogoM /><span>Mova<span>cash</span></span></span>
-          <p style={{ marginTop: 6 }}>{t("L'atelier des e-books à vendre en ligne. Non affilié à Gumroad, Payhip ou Amazon. Aucun revenu garanti.")}</p>
+          <p style={{ marginTop: 6 }}>{t("L'atelier des e-books à vendre sur Etsy. Non affilié à Etsy. Aucun revenu garanti.")}</p>
           <div style={{ marginTop: 14 }}><LangSwitch /></div>
         </div>
         <div className="links">
-          <Link href={`/guides?lang=${guideLang(locale)}`}>{t("Guides de vente")}</Link>
+          <Link href={`/guides?lang=${guideLang(locale)}`}>{t("Guides Etsy")}</Link>
           {/* Les pages d'idées par thème n'existent qu'en français (la base d'idées est en français) */}
           {locale === "fr" && <Link href="/idees?lang=fr">Idées d'e-books</Link>}
           <Link href="/cgv">{t("CGV")}</Link>
