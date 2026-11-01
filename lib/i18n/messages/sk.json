@@ -1271,5 +1271,14 @@
  "Où tu veux": "Kam chceš",
  "recevoir tes paiements ?": "dostávať svoje platby?",
  "retrait sur ton compte PayPal": "výber na tvoj účet PayPal",
- "compte en ligne, plusieurs devises": "online účet, viac mien"
+ "compte en ligne, plusieurs devises": "online účet, viac mien",
+ "Rétractation de mon abonnement Movacash": "Odstúpenie od predplatného Movacash",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Dobrý deň,\n\nchcem uplatniť svoje právo na odstúpenie od predplatného Movacash a získať vrátenie peňazí.\n\nE-mail účtu: {email}\n\nĎakujem.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Predplatné máš menej ako 14 dní a zatiaľ si nevytvoril(a) žiadny e-book: môžeš aj odstúpiť a do {date} dostať späť celú sumu.",
+ "Demander mon remboursement": "Požiadať o vrátenie peňazí",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Ešte môžeš odstúpiť a do {date} dostať späť celú sumu (žiadny e-book nevytvorený).",
+ "Gérer ou résilier mon abonnement": "Spravovať alebo zrušiť predplatné",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Každý nový e-book sa počíta ako 1 vo chvíli, keď vznikne osnova. Limit sa obnovuje 1. dňa každého mesiaca. Zmazanie e-booku kredit nevracia.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Áno, každú kapitolu môžeš priamo upraviť. E-book si pred predajom vždy prečítaj: z toho sú dobré recenzie.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Táto kapitola je už napísaná. Môžeš ju priamo upraviť."
 }

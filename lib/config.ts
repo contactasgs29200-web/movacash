@@ -41,7 +41,7 @@ export const PLANS: Plan[] = [
     annualMonthlyEur: 19.95,
     ebooksPerMonth: 50,
     highlight: true,
-    features: [tk("50 e-books par mois"), tk("Tout Starter"), tk("Miniature Etsy avec photo"), tk("Régénération illimitée des chapitres")],
+    features: [tk("50 e-books par mois"), tk("Tout Starter"), tk("Miniature Etsy avec photo")],
     stripePriceEnv: "STRIPE_PRICE_PRO",
     stripeAnnualPriceEnv: "STRIPE_PRICE_PRO_ANNUAL",
   },

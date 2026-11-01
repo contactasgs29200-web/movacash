@@ -1271,5 +1271,14 @@
  "Où tu veux": "Where do you want to",
  "recevoir tes paiements ?": "receive your payments?",
  "retrait sur ton compte PayPal": "withdraw to your PayPal account",
- "compte en ligne, plusieurs devises": "online account, multiple currencies"
+ "compte en ligne, plusieurs devises": "online account, multiple currencies",
+ "Rétractation de mon abonnement Movacash": "Withdrawal from my Movacash subscription",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Hello,\n\nI would like to exercise my right of withdrawal for my Movacash subscription and be refunded.\n\nAccount e-mail: {email}\n\nThank you.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "You subscribed less than 14 days ago and haven't created any e-book yet: you can also withdraw and get a full refund until {date}.",
+ "Demander mon remboursement": "Request my refund",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "You can still withdraw and get a full refund until {date} (no e-book created).",
+ "Gérer ou résilier mon abonnement": "Manage or cancel my subscription",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Each new e-book counts as 1, when its outline is created. The quota resets on the 1st of every month. Deleting an e-book doesn't give credit back.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Yes, every chapter can be edited directly. Always review your e-book before selling it: that's what earns good reviews.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "This chapter is already written. You can edit it directly."
 }

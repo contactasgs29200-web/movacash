@@ -1271,5 +1271,14 @@
  "Où tu veux": "Waar wil je",
  "recevoir tes paiements ?": "je betalingen ontvangen?",
  "retrait sur ton compte PayPal": "opname naar je PayPal-rekening",
- "compte en ligne, plusieurs devises": "online rekening, meerdere valuta"
+ "compte en ligne, plusieurs devises": "online rekening, meerdere valuta",
+ "Rétractation de mon abonnement Movacash": "Herroeping van mijn Movacash-abonnement",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Hallo,\n\nIk wil mijn herroepingsrecht uitoefenen voor mijn Movacash-abonnement en terugbetaald worden.\n\nE-mail van het account: {email}\n\nBedankt.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Je hebt minder dan 14 dagen geleden een abonnement genomen en nog geen e-book gemaakt: je kunt ook herroepen en tot {date} volledig terugbetaald worden.",
+ "Demander mon remboursement": "Terugbetaling aanvragen",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Je kunt nog tot {date} herroepen en volledig terugbetaald worden (geen e-book gemaakt).",
+ "Gérer ou résilier mon abonnement": "Mijn abonnement beheren of opzeggen",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Elk nieuw e-book telt voor 1, op het moment dat het plan wordt gemaakt. Het quotum begint op de 1e van elke maand opnieuw. Een e-book verwijderen geeft geen tegoed terug.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Ja, elk hoofdstuk kun je direct aanpassen. Lees je e-book altijd na voordat je het verkoopt: daar komen goede reviews van.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Dit hoofdstuk is al geschreven. Je kunt het direct aanpassen."
 }

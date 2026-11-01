@@ -1271,5 +1271,14 @@
  "Où tu veux": "Къде искаш да",
  "recevoir tes paiements ?": "получаваш плащанията си?",
  "retrait sur ton compte PayPal": "теглене към твоя PayPal акаунт",
- "compte en ligne, plusieurs devises": "онлайн сметка, няколко валути"
+ "compte en ligne, plusieurs devises": "онлайн сметка, няколко валути",
+ "Rétractation de mon abonnement Movacash": "Отказ от абонамента ми за Movacash",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Здравейте,\n\nЖелая да упражня правото си на отказ от абонамента за Movacash и да получа възстановяване на сумата.\n\nИмейл на акаунта: {email}\n\nБлагодаря.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Абонира се преди по-малко от 14 дни и още не си създал(а) електронна книга: можеш също да се откажеш и да получиш пълно възстановяване до {date}.",
+ "Demander mon remboursement": "Поискай възстановяване",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Все още можеш да се откажеш и да получиш пълно възстановяване до {date} (няма създадени книги).",
+ "Gérer ou résilier mon abonnement": "Управление или прекратяване на абонамента",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Всяка нова книга се брои за 1 в момента, в който се създаде планът. Лимитът се нулира на 1-во число всеки месец. Изтриването на книга не възстановява кредита.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Да, всяка глава може да се редактира директно. Винаги преглеждай книгата си, преди да я продаваш: това носи добрите отзиви.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Тази глава вече е написана. Можеш да я редактираш директно."
 }

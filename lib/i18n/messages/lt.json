@@ -1271,5 +1271,14 @@
  "Où tu veux": "Kur nori",
  "recevoir tes paiements ?": "gauti savo mokėjimus?",
  "retrait sur ton compte PayPal": "išmoka į tavo PayPal sąskaitą",
- "compte en ligne, plusieurs devises": "internetinė sąskaita, kelios valiutos"
+ "compte en ligne, plusieurs devises": "internetinė sąskaita, kelios valiutos",
+ "Rétractation de mon abonnement Movacash": "Atsisakymas Movacash prenumeratos",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Sveiki,\n\nnoriu pasinaudoti teise atsisakyti Movacash prenumeratos ir susigrąžinti pinigus.\n\nPaskyros el. paštas: {email}\n\nAčiū.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Užsiprenumeravai mažiau nei prieš 14 dienų ir dar nesukūrei nė vienos el. knygos: taip pat gali atsisakyti ir iki {date} atgauti visą sumą.",
+ "Demander mon remboursement": "Prašyti grąžinti pinigus",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Vis dar gali atsisakyti ir iki {date} atgauti visą sumą (nesukurta nė viena el. knyga).",
+ "Gérer ou résilier mon abonnement": "Tvarkyti arba atšaukti prenumeratą",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Kiekviena nauja el. Skyriaus pergeneravimas neskaičiuojamas. Kvota atstatoma kiekvieno mėnesio 1 d. El. knygos ištrynimas kredito negrąžina.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Taip, kiekvieną skyrių galima redaguoti tiesiogiai. Prieš parduodamas visada perskaityk savo el. knygą: tai atneša gerus atsiliepimus.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Šis skyrius jau parašytas. Gali jį redaguoti tiesiogiai."
 }

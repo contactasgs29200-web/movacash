@@ -245,7 +245,8 @@ function ContentTab({ ebook, chapters, running, onRegenerate, onSaved }: { ebook
               {c.status === "done" && editing !== c.idx && (
                 <button className="btn-ghost" onClick={() => { setEditing(c.idx); setDraft({ title: c.title, content_md: c.content_md }); }}>{t("Modifier")}</button>
               )}
-              <button className="btn-ghost" disabled={running} onClick={() => onRegenerate(c.idx)}>{c.status === "done" ? t("Régénérer") : t("Générer")}</button>
+              {/* Pas de régénération d'un chapitre déjà rédigé (coût API) : seulement ceux en attente ou en échec */}
+              {c.status !== "done" && <button className="btn-ghost" disabled={running} onClick={() => onRegenerate(c.idx)}>{t("Générer")}</button>}
             </div>
           </div>
           {editing === c.idx ? (

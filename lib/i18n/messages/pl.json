@@ -1271,5 +1271,14 @@
  "Où tu veux": "Gdzie chcesz",
  "recevoir tes paiements ?": "otrzymywać swoje płatności?",
  "retrait sur ton compte PayPal": "wypłata na twoje konto PayPal",
- "compte en ligne, plusieurs devises": "konto online, wiele walut"
+ "compte en ligne, plusieurs devises": "konto online, wiele walut",
+ "Rétractation de mon abonnement Movacash": "Odstąpienie od subskrypcji Movacash",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Dzień dobry,\n\nchcę skorzystać z prawa odstąpienia od subskrypcji Movacash i otrzymać zwrot pieniędzy.\n\nE-mail konta: {email}\n\nDziękuję.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Subskrypcję wykupiono mniej niż 14 dni temu i nie utworzono jeszcze żadnego e-booka: możesz też odstąpić od umowy i otrzymać pełny zwrot do {date}.",
+ "Demander mon remboursement": "Poproś o zwrot",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Nadal możesz odstąpić od umowy i otrzymać pełny zwrot do {date} (brak utworzonych e-booków).",
+ "Gérer ou résilier mon abonnement": "Zarządzaj subskrypcją lub ją anuluj",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Każdy nowy e-book liczy się jako 1 w chwili utworzenia planu. Limit odnawia się 1. dnia każdego miesiąca. Usunięcie e-booka nie zwraca kredytu.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Tak, każdy rozdział można edytować bezpośrednio. Zawsze czytaj e-book przed sprzedażą: to daje dobre opinie.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Ten rozdział jest już napisany. Możesz go edytować bezpośrednio."
 }

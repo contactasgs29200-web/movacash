@@ -1271,5 +1271,14 @@
  "Où tu veux": "Var vill du",
  "recevoir tes paiements ?": "ta emot dina betalningar?",
  "retrait sur ton compte PayPal": "uttag till ditt PayPal-konto",
- "compte en ligne, plusieurs devises": "onlinekonto, flera valutor"
+ "compte en ligne, plusieurs devises": "onlinekonto, flera valutor",
+ "Rétractation de mon abonnement Movacash": "Ångra mitt Movacash-abonnemang",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Hej,\n\nJag vill utnyttja min ångerrätt för mitt Movacash-abonnemang och få pengarna tillbaka.\n\nKontots e-post: {email}\n\nTack.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Du tecknade abonnemanget för mindre än 14 dagar sedan och har inte skapat någon e-bok: du kan också ångra dig och få full återbetalning till och med {date}.",
+ "Demander mon remboursement": "Begär återbetalning",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Du kan fortfarande ångra dig och få full återbetalning till och med {date} (ingen e-bok skapad).",
+ "Gérer ou résilier mon abonnement": "Hantera eller säg upp mitt abonnemang",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Varje ny e-bok räknas som 1 när dispositionen skapas. Kvoten nollställs den 1:a varje månad. Att radera en e-bok ger inte tillbaka krediten.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Ja, varje kapitel kan redigeras direkt. Läs alltid igenom din e-bok innan du säljer den: det är det som ger bra omdömen.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Det här kapitlet är redan skrivet. Du kan redigera det direkt."
 }

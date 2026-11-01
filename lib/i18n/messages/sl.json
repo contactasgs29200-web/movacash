@@ -1271,5 +1271,14 @@
  "Où tu veux": "Kam želiš",
  "recevoir tes paiements ?": "prejemati svoja plačila?",
  "retrait sur ton compte PayPal": "dvig na tvoj račun PayPal",
- "compte en ligne, plusieurs devises": "spletni račun, več valut"
+ "compte en ligne, plusieurs devises": "spletni račun, več valut",
+ "Rétractation de mon abonnement Movacash": "Odstop od moje naročnine Movacash",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Pozdravljeni,\n\nželim uveljaviti pravico do odstopa od naročnine Movacash in dobiti vračilo denarja.\n\nE-pošta računa: {email}\n\nHvala.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Naročil(a) si se pred manj kot 14 dnevi in še nisi ustvaril(a) nobene e-knjige: lahko tudi odstopiš in do {date} dobiš celotno vračilo.",
+ "Demander mon remboursement": "Zahtevaj vračilo",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Še vedno lahko odstopiš in do {date} dobiš celotno vračilo (ni ustvarjenih e-knjig).",
+ "Gérer ou résilier mon abonnement": "Upravljaj ali prekliči naročnino",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Vsaka nova e-knjiga šteje kot 1, ko je ustvarjen načrt. Kvota se ponastavi 1. v vsakem mesecu. Brisanje e-knjige ne vrne kredita.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Da, vsako poglavje lahko urejaš neposredno. Vedno preberi svojo e-knjigo, preden jo prodaš: to prinaša dobre ocene.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "To poglavje je že napisano. Lahko ga urediš neposredno."
 }

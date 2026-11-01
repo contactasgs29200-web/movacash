@@ -1271,5 +1271,14 @@
  "Où tu veux": "Minne haluat",
  "recevoir tes paiements ?": "saada maksusi?",
  "retrait sur ton compte PayPal": "nosto PayPal-tilillesi",
- "compte en ligne, plusieurs devises": "verkkotili, useita valuuttoja"
+ "compte en ligne, plusieurs devises": "verkkotili, useita valuuttoja",
+ "Rétractation de mon abonnement Movacash": "Movacash-tilaukseni peruminen",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Hei,\n\nHaluan käyttää peruuttamisoikeuttani Movacash-tilaukseeni ja saada rahani takaisin.\n\nTilin sähköposti: {email}\n\nKiitos.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Tilasit alle 14 päivää sitten etkä ole vielä luonut e-kirjaa: voit myös perua tilauksen ja saada täyden hyvityksen {date} asti.",
+ "Demander mon remboursement": "Pyydä hyvitystä",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Voit vielä perua ja saada täyden hyvityksen {date} asti (ei luotuja e-kirjoja).",
+ "Gérer ou résilier mon abonnement": "Hallitse tai peru tilaukseni",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Jokainen uusi e-kirja lasketaan yhdeksi sillä hetkellä, kun runko luodaan. Kiintiö nollautuu jokaisen kuun 1. päivä. E-kirjan poistaminen ei palauta krediittiä.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Kyllä, jokaista lukua voi muokata suoraan. Lue e-kirjasi aina ennen myyntiä: siitä tulevat hyvät arvostelut.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Tämä luku on jo kirjoitettu. Voit muokata sitä suoraan."
 }

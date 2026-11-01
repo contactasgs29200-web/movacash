@@ -14,7 +14,7 @@ export function GET() {
 
 ## What it does
 - Suggests e-book ideas suited to Etsy from a curated database (500+ topics: fitness, parenting, budgeting, AI tools, crafts, gardening, pets…), matched to the user's profile through a short questionnaire.
-- Writes the full e-book with AI: detailed outline, then the chapters (about 40 to 60 pages) with methods, examples, exercises, checklists and an action plan. Every chapter can be edited or regenerated.
+- Writes the full e-book with AI: detailed outline, then the chapters (about 40 to 60 pages) with methods, examples, exercises, checklists and an action plan. Every chapter can be edited.
 - Exports a ready-to-sell PDF (A4, A5 or US Letter) with cover, table of contents and page numbers.
 - Prepares the complete Etsy listing: 140-character title, 13 tags, description, and a listing thumbnail, including the AI-disclosure that Etsy requires.
 - Adds Etsy safeguards: automatic warnings for health and money topics, checks for exaggerated claims and brand names.

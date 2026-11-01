@@ -1271,5 +1271,14 @@
  "Où tu veux": "Dove vuoi",
  "recevoir tes paiements ?": "ricevere i tuoi pagamenti?",
  "retrait sur ton compte PayPal": "prelievo sul tuo conto PayPal",
- "compte en ligne, plusieurs devises": "conto online, più valute"
+ "compte en ligne, plusieurs devises": "conto online, più valute",
+ "Rétractation de mon abonnement Movacash": "Recesso dal mio abbonamento Movacash",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Buongiorno,\n\ndesidero esercitare il mio diritto di recesso dall'abbonamento Movacash ed essere rimborsato/a.\n\nE-mail dell'account: {email}\n\nGrazie.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Ti sei abbonato/a meno di 14 giorni fa e non hai ancora creato alcun e-book: puoi anche recedere ed essere rimborsato/a per intero fino al {date}.",
+ "Demander mon remboursement": "Richiedi il rimborso",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Puoi ancora recedere ed essere rimborsato/a per intero fino al {date} (nessun e-book creato).",
+ "Gérer ou résilier mon abonnement": "Gestisci o disdici il mio abbonamento",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Ogni nuovo e-book conta 1, nel momento in cui viene creato lo schema. La quota si azzera il 1° di ogni mese. Eliminare un e-book non restituisce credito.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Sì, ogni capitolo è modificabile direttamente. Rileggi sempre il tuo e-book prima di venderlo: è ciò che porta buone recensioni.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Questo capitolo è già scritto. Puoi modificarlo direttamente."
 }

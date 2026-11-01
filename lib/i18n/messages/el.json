@@ -1271,5 +1271,14 @@
  "Où tu veux": "Πού θέλεις να",
  "recevoir tes paiements ?": "λαμβάνεις τις πληρωμές σου;",
  "retrait sur ton compte PayPal": "ανάληψη στον λογαριασμό σου PayPal",
- "compte en ligne, plusieurs devises": "online λογαριασμός, πολλά νομίσματα"
+ "compte en ligne, plusieurs devises": "online λογαριασμός, πολλά νομίσματα",
+ "Rétractation de mon abonnement Movacash": "Υπαναχώρηση από τη συνδρομή μου στο Movacash",
+ "Bonjour,\n\nJe souhaite exercer mon droit de rétractation pour mon abonnement Movacash et être remboursé(e).\n\nE-mail du compte : {email}\n\nMerci.": "Καλησπέρα,\n\nΘέλω να ασκήσω το δικαίωμα υπαναχώρησης για τη συνδρομή μου στο Movacash και να λάβω επιστροφή χρημάτων.\n\nE-mail λογαριασμού: {email}\n\nΕυχαριστώ.",
+ "Tu as souscrit il y a moins de 14 jours et tu n'as encore créé aucun e-book : tu peux aussi te rétracter et être remboursé(e) intégralement, jusqu'au {date}.": "Έγινες συνδρομητής πριν από λιγότερες από 14 ημέρες και δεν έχεις δημιουργήσει ακόμη κανένα e-book: μπορείς επίσης να υπαναχωρήσεις και να λάβεις πλήρη επιστροφή έως τις {date}.",
+ "Demander mon remboursement": "Ζήτησε επιστροφή χρημάτων",
+ "Tu peux encore te rétracter et être remboursé(e) intégralement jusqu'au {date} (aucun e-book créé).": "Μπορείς ακόμη να υπαναχωρήσεις και να λάβεις πλήρη επιστροφή έως τις {date} (κανένα e-book).",
+ "Gérer ou résilier mon abonnement": "Διαχείριση ή ακύρωση της συνδρομής μου",
+ "Chaque nouvel e-book compte pour 1, au moment où le plan est créé. Le quota repart à zéro le 1er de chaque mois. Supprimer un e-book ne rend pas de crédit.": "Κάθε νέο e-book μετράει για 1, τη στιγμή που δημιουργείται το σχέδιο. Το όριο μηδενίζεται την 1η κάθε μήνα. Η διαγραφή ενός e-book δεν επιστρέφει πίστωση.",
+ "Oui, chaque chapitre est modifiable directement. Relis toujours ton e-book avant de le vendre : c'est ce qui fait les bons avis.": "Ναι, κάθε κεφάλαιο επεξεργάζεται απευθείας. Διάβαζε πάντα το e-book σου πριν το πουλήσεις: αυτό φέρνει καλές κριτικές.",
+ "Ce chapitre est déjà rédigé. Tu peux le modifier directement.": "Αυτό το κεφάλαιο έχει ήδη γραφτεί. Μπορείς να το επεξεργαστείς απευθείας."
 }

@@ -20,6 +20,8 @@ export async function POST(_req: Request, { params }: Ctx) {
     const i = Number(idx);
     const ch = data.chapters.find((c) => c.idx === i);
     if (!ch) return fail("Chapitre introuvable", 404);
+    // Un chapitre déjà rédigé ne se régénère pas (coût API) : il reste modifiable à la main.
+    if (ch.status === "done" && ch.content_md.trim()) return fail("Ce chapitre est déjà rédigé. Tu peux le modifier directement.", 409);
     await run("UPDATE chapters SET status = 'generating' WHERE id = ?", [ch.id]);
     try {
       const film = isFilmMode(user);
